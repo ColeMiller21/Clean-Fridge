@@ -1,0 +1,101 @@
+body{width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../images/wall-ambient-03.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar {
+    background-color: transparent !important;
+}
+
+#header {
+    width: 100%;
+    height: 200px;
+}
+
+#h-text {
+    position: relative;
+    top: 20%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 7vw;
+    font-weight: 600;
+    color: white;
+}
+
+.container {
+    width: 50%;
+    text-align: center;
+    height: 400px;
+    
+}
+
+#button-addon2 {
+    background-color: #007bff;
+    color: white;
+}
+#ingredients-container {
+    background: transparent;
+    min-height: 300px;
+    max-height: auto;
+    overflow: auto;
+    word-wrap: wrap;
+    
+    text-align: center;
+}
+
+#ingredients-text {
+    color: white;
+    font-family: 'Long Cang', cursive;
+    font-size: 2.5vw;
+}
+
+
+#search-button {
+    margin-bottom: 40px;
+    margin: 0 auto;
+}
+
+#search-button:hover {
+    color: white;
+    border-radius: 50px;
+    border-color: #494949 !important;
+    transition: all 0.3s ease 0s;
+    }
+
+#list {
+        list-style: none;
+}
+
+#ing-div {
+    background: red;
+    display: none;
+}
+
+#recipie-div {
+    background: blue;
+    display: none;
+}
+
+p {
+    text-transform: capitalize;
+}
+.modal {
+    max-width: 100% !important;
+}
+
+.modal-page {
+    padding: 20px;
+}
+
+.custom-button {
+    float: right;
+}

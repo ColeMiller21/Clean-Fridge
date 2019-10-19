@@ -1,0 +1,140 @@
+!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Clean Fridge</title>
+</head>
+
+<body>
+
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+            <div class="d-flex w-50 order-0">
+                <a class="navbar-brand mr-1"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="signup-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-signup">Sign Up</a>
+                    </li>
+                    <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div id="signup-page" class="modal-page">
+                                    <label for="basic-url" id="email-signup">Email: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="email-signup-input"
+                                            aria-describedby="basic-addon3" placeholder="User@email.com">
+                                    </div>
+                                    <label for="basic-url" id="pw-signup">Password: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="pw-signup-input"
+                                            aria-describedby="basic-addon3" placeholder="Password">
+                                    </div>
+                                    <label for="basic-url" id="pw-signup">Repeat Password: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="repeat-pw-input"
+                                            aria-describedby="basic-addon3" placeholder="Password">
+                                    </div>
+                                    <button type="button" class="btn btn-primary custom-button" id="signup-button">Sign
+                                        Up</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="login-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-login">Log In</a>
+                    </li>
+                    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div id="login-page" class="modal-page">
+                                    <label for="basic-url" id="email-login">Email: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="email-login-input"
+                                            aria-describedby="basic-addon3" placeholder="User@email.com">
+                                    </div>
+                                    <label for="basic-url" id="pw-login">Password: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="pw-login-input"
+                                            aria-describedby="basic-addon3" placeholder="Password">
+                                    </div>
+                                    <button type="button" class="btn btn-primary custom-button" id="login-button">Log
+                                        In</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </nav>
+        <header id="header">
+            <h1 id="h-text">Clean Fridge</h1>
+
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6" id="recipie-div">
+                    carosel
+                </div>
+                <div class="col-md-6" id="ing-div">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="ingredients-container">
+            <div class="input-group mb-3" id="full-input">
+                <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
+                    aria-describedby="inputGroup-sizing-default">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary add" type="button" id="button-addon2">Add +</button>
+                </div>
+            </div>
+            <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
+
+
+
+
+
+            <button type="button" class="btn btn-primary text-center" id="search-button">Search Recipies</button>
+
+        </div>
+
+
+
+
+        </div>
+        </div>
+
+
+
+        <script src="assets/javascript/app.js"></script>
+    </body>
+
+</html>
