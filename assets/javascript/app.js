@@ -1,6 +1,4 @@
-var ingredients = [];
-var search = $("#search-input").val();
-
+// Firebase authentication
 
 var config = {
     apiKey: "AIzaSyCQZ4uWyQBdW-3HkHtG2O7EpsvmaXGlhdU",
@@ -23,7 +21,7 @@ var btnLogin = $("#login-button");
 var btnSignup = $("#signup-button");
 var btnLogout = $("#logout-button");
 
-// add login event
+// Log in button 
 
 btnLogin.on("click", function (e) {
     event.preventDefault();
@@ -35,9 +33,9 @@ btnLogin.on("click", function (e) {
     var promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch(console.log(e.message));
 
-    $('.modal').modal('hide');
 });
 
+// Sign up button click
 btnSignup.on("click", function (e) {
     event.preventDefault();
     console.log("clicked");
@@ -48,18 +46,23 @@ btnSignup.on("click", function (e) {
     // check for real email
     promise = auth.createUserWithEmailAndPassword(email, password);
     promise.catch(console.log(e.message));
+    txtPassword.val("");
+    txtEmail.val("");
 
-    $('.modal').modal('hide');
 });
 
+// Logout button click
 btnLogout.on("click", function (e) {
     console.log("logged out");
     firebase.auth().signOut();
 });
 
+// User state change if else functions
+
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
     if (firebaseUser) {
         console.log(firebaseUser);
+        console.log("user email  " + firebaseUser.email);
         $("#logout-button").css({
             "display": "block"
         });
@@ -78,6 +81,43 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         });
     }
 });
+
+//API call
+
+var settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=apples%2Cflour%2Csugar",
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181"
+    }
+}
+
+$.ajax(settings).done(function (response) {
+    console.log(response);
+
+    for (var i = 0; i < response.length; i++) {
+        console.log(response[i]);
+
+        var recipeDiv = $("<div>");
+        recipeDiv.addClass("recipe-div");
+        var image = $("<img>");
+        image.addClass("img-thumbnail");
+        image.attr("src", response[i].image);
+        var title = $("<p>");
+        title.text(response[i].title);
+
+        recipeDiv.append(title);
+        recipeDiv.append(image);
+
+
+
+    }
+});
+
+
 
 
 // search button click to display ingredients div

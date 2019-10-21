@@ -57,10 +57,11 @@
                                             aria-describedby="basic-addon3" placeholder="Password">
                                     </div>
                                     <div id="buttons">
-                                        <button type="button" class="btn btn-primary signup-button"
-                                            id="signup-button">Sign
+                                        <button type="button" class="btn btn-primary signup-button" id="signup-button"
+                                            data-dismiss="modal">Sign
                                             Up</button>
-                                        <button type="button" class="btn btn-primary login-button" id="login-button">Log
+                                        <button type="button" class="btn btn-primary login-button" id="login-button"
+                                            data-dismiss="modal">Log
                                             In</button>
                                     </div>
                                 </div>
@@ -77,9 +78,21 @@
                     <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                Frequently Asked Questions.......
-
+                            <div class="modal-content" id="faq-page">
+                                <h3>Frequently Asked Questions</h3>
+                                <br>
+                                <h4>What is Clean Fridge?</h4>
+                                <p>Bilge water crack Jennys tea cup Cat o'nine tails American Main yawl Barbary Coast
+                                    hail-shot swing the lead shrouds reef sails. Grog salmagundi aft Spanish Main
+                                    nipperkin chase guns crimp haul wind jack six pounders. </p>
+                                <h4>Why should I sign up?</h4>
+                                <p>Bilge water crack Jennys tea cup Cat o'nine tails American Main yawl Barbary Coast
+                                    hail-shot swing the lead shrouds reef sails. Grog salmagundi aft Spanish Main
+                                    nipperkin chase guns crimp haul wind jack six pounders. </p>
+                                <h4>Is there a way to set diet preferences?</h4>
+                                <p>Bilge water crack Jennys tea cup Cat o'nine tails American Main yawl Barbary Coast
+                                    hail-shot swing the lead shrouds reef sails. Grog salmagundi aft Spanish Main
+                                    nipperkin chase guns crimp haul wind jack six pounders. </p>
                             </div>
                         </div>
                     </div>
@@ -90,6 +103,7 @@
             <h1 id="h-text">Clean Fridge</h1>
 
         </header>
+
         <div class="container-fluid">
             <div class="row">
 
@@ -126,6 +140,10 @@
                             <div class="row">
 
                                 <div class="col-md-12">
+                                    <div id="recipe">
+
+
+                                    </div>
                                     <div class="collapse" id="collapseExample">
                                         <div class="card card-body">
                                             <ol class="list-group">
@@ -358,6 +376,7 @@
 
 
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 

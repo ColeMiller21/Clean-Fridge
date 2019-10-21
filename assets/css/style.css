@@ -97,13 +97,16 @@ p {
     max-width: 100% !important;
 }
 
+#faq-page {
+    padding: 10px;
+}
+
 .modal-page {
     padding: 20px;
 }
 
 .signup-button {
     float: right;
-<<<<<<< HEAD
     margin-left: 5px;
 
 }
@@ -112,55 +115,4 @@ p {
 }
 #logout-button{
     display: none;
-=======
-}
-
-.recipe-images {
-    max-width: 100%;
-    
-    border-right: 2px solid white;
-
-}
-
-
-
-#ing-div {
-    border-radius: 25px;
-    border: 2px solid white;
-    background: rgba(0, 0, 0, 0.2);
-    display: none;
-    
-}
-
-.overflow-auto {
-    margin-top: 15px;
-   
-    border-radius: 25px;
-    border: 2px solid white;
-}
-
-.img {
-    border-radius: 25px;
-}
-
-.div-btn1 {
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    width: 100%;
-}
-
-.list-group-flush {
-    height: 85px;
-overflow-y: visible;
-
-}
-
-.list-group-item {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.overflow-div {
-height: 560px;
-    overflow-y: scroll;
->>>>>>> 4a283d0aaa5ed89619538bb61c18d59e26741d5e
 }
