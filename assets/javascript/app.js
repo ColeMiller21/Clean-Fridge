@@ -2,6 +2,84 @@ var ingredients = [];
 var search = $("#search-input").val();
 
 
+var config = {
+    apiKey: "AIzaSyCQZ4uWyQBdW-3HkHtG2O7EpsvmaXGlhdU",
+    authDomain: "clean-fridge-6d073.firebaseapp.com",
+    databaseURL: "https://clean-fridge-6d073.firebaseio.com",
+    projectId: "clean-fridge-6d073",
+    storageBucket: "clean-fridge-6d073.appspot.com",
+    messagingSenderId: "956307004475",
+    appId: "1:956307004475:web:4c1e878f1308b77bab101e",
+    measurementId: "G-3VZZ2D07RL"
+};
+// Initialize Firebase
+firebase.initializeApp(config);
+
+var database = firebase.database();
+
+var txtEmail = $("#email-input");
+var txtPassword = $("#pw-input");
+var btnLogin = $("#login-button");
+var btnSignup = $("#signup-button");
+var btnLogout = $("#logout-button");
+
+// add login event
+
+btnLogin.on("click", function (e) {
+    event.preventDefault();
+    var email = txtEmail.val();
+    var password = txtPassword.val();
+    var auth = firebase.auth();
+
+    // Sign in
+    var promise = auth.signInWithEmailAndPassword(email, password);
+    promise.catch(console.log(e.message));
+
+    $('.modal').modal('hide');
+});
+
+btnSignup.on("click", function (e) {
+    event.preventDefault();
+    console.log("clicked");
+    email = txtEmail.val();
+    password = txtPassword.val();
+    auth = firebase.auth();
+
+    // check for real email
+    promise = auth.createUserWithEmailAndPassword(email, password);
+    promise.catch(console.log(e.message));
+
+    $('.modal').modal('hide');
+});
+
+btnLogout.on("click", function (e) {
+    console.log("logged out");
+    firebase.auth().signOut();
+});
+
+firebase.auth().onAuthStateChanged(function (firebaseUser) {
+    if (firebaseUser) {
+        console.log(firebaseUser);
+        $("#logout-button").css({
+            "display": "block"
+        });
+        $("#signup-login-button").css({
+            "display": "none"
+        });
+        //display logout button (hide to block);
+    }
+    else {
+        console.log("not logged in");
+        $("#logout-button").css({
+            "display": "none"
+        });
+        $("#signup-login-button").css({
+            "display": "block"
+        });
+    }
+});
+
+
 // search button click to display ingredients div
 $("#search-button").on("click", function () {
     event.preventDefault();

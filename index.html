@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,6 +19,8 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Clean Fridge</title>
 </head>
@@ -36,8 +38,8 @@
             <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" id="signup-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-signup">Sign Up</a>
+                        <a class="nav-link" href="#" id="signup-login-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-signup">Sign Up/Log in</a>
                     </li>
                     <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -46,47 +48,38 @@
                                 <div id="signup-page" class="modal-page">
                                     <label for="basic-url" id="email-signup">Email: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="email-signup-input"
+                                        <input type="email" class="form-control" id="email-input"
                                             aria-describedby="basic-addon3" placeholder="User@email.com">
                                     </div>
                                     <label for="basic-url" id="pw-signup">Password: </label>
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="pw-signup-input"
+                                        <input type="password" class="form-control" id="pw-input"
                                             aria-describedby="basic-addon3" placeholder="Password">
                                     </div>
-                                    <label for="basic-url" id="pw-signup">Repeat Password: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="repeat-pw-input"
-                                            aria-describedby="basic-addon3" placeholder="Password">
+                                    <div id="buttons">
+                                        <button type="button" class="btn btn-primary signup-button"
+                                            id="signup-button">Sign
+                                            Up</button>
+                                        <button type="button" class="btn btn-primary login-button" id="login-button">Log
+                                            In</button>
                                     </div>
-                                    <button type="button" class="btn btn-primary custom-button" id="signup-button">Sign
-                                        Up</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" id="login-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-login">Log In</a>
+                        <a class="nav-link" href="#" id="logout-button">Log Out</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-login">FAQ</a>
                     </li>
                     <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content">
-                                <div id="login-page" class="modal-page">
-                                    <label for="basic-url" id="email-login">Email: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="email-login-input"
-                                            aria-describedby="basic-addon3" placeholder="User@email.com">
-                                    </div>
-                                    <label for="basic-url" id="pw-login">Password: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="pw-login-input"
-                                            aria-describedby="basic-addon3" placeholder="Password">
-                                    </div>
-                                    <button type="button" class="btn btn-primary custom-button" id="login-button">Log
-                                        In</button>
-                                </div>
+                                Frequently Asked Questions.......
+
                             </div>
                         </div>
                     </div>
@@ -133,6 +126,11 @@
         </div>
 
 
+
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 
         <script src="assets/javascript/app.js"></script>
     </body>

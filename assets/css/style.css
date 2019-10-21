@@ -96,6 +96,14 @@ p {
     padding: 20px;
 }
 
-.custom-button {
+.signup-button {
     float: right;
+    margin-left: 5px;
+
+}
+.login-button {
+    float: right;
+}
+#logout-button{
+    display: none;
 }
