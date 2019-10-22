@@ -68,9 +68,43 @@
                             </div>
                         </div>
                     </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="logout-button">Log Out</a>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="dropdown-text"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
+                                data-target=".bd-example-modal-lg-pref">Preferences</a>
+
+                            <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
+
+                        </div>
                     </li>
+
+                    <div class="modal fade bd-example-modal-lg-pref" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content modal-page">
+                                <label for="basic-url" id="email-signup">Display Name: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="displayName-input"
+                                        aria-describedby="basic-addon3" placeholder="Display Name">
+                                </div>
+                                <form id="diet-form">
+                                    <div id="radio">
+                                        <p class="">Diet Preference: </p>
+                                        <input type="radio" class="diet" name="diet" value="Vegitarian">Vegitarian
+                                        <input type="radio" class="diet" name="diet" value="Vegan">Vegan
+                                        <input type="radio" class="diet" name="diet" value="Paleo">Paleo
+                                    </div>
+                                </form>
+                                <button type="button" class="btn btn-primary login-button" id="save-button"
+                                    data-dismiss="modal">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
                     <li class="nav-item active">
                         <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
                             data-target=".bd-example-modal-lg-login">FAQ</a>

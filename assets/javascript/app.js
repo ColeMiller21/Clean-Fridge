@@ -20,6 +20,11 @@ var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
 var btnSignup = $("#signup-button");
 var btnLogout = $("#logout-button");
+var btnSave = $("#save-button");
+var userId;
+var userEmail;
+var userDisplayName;
+var dietVal;
 
 // Log in button 
 
@@ -49,12 +54,14 @@ btnSignup.on("click", function (e) {
     txtPassword.val("");
     txtEmail.val("");
 
+
 });
 
 // Logout button click
 btnLogout.on("click", function (e) {
     console.log("logged out");
     firebase.auth().signOut();
+    $("#navbarDropdown").hide();
 });
 
 // User state change if else functions
@@ -62,25 +69,52 @@ btnLogout.on("click", function (e) {
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
     if (firebaseUser) {
         console.log(firebaseUser);
-        console.log("user email  " + firebaseUser.email);
-        $("#logout-button").css({
+
+
+        $("#dropdown-text").text(firebaseUser.email);
+        $("#navbarDropdown").css({
             "display": "block"
         });
         $("#signup-login-button").css({
             "display": "none"
         });
-        //display logout button (hide to block);
+
+        userId = firebaseUser.uid;
+        userEmail = firebaseUser.email;
+        userDisplayName = firebaseUser.displayName;
+
+        //pushing to firebase to save user data.
+        // Save changes button click
+        $("#save-button").on("click", function () {
+            userDisplayName = $("#displayName-input").val();
+            console.log("display name " + userDisplayName);
+            dietVal = $("input[name='diet']:checked").val();
+            console.log("diet preference " + dietVal);
+
+
+            database.ref("users/" + userId).set({
+                userId: userId,
+                userEmail: userEmail,
+                displayName: userDisplayName,
+                dietVal: dietVal
+            });
+
+        });
     }
     else {
         console.log("not logged in");
-        $("#logout-button").css({
-            "display": "none"
+        $("#navbarDropdown").css({
+            "display": "hide"
         });
         $("#signup-login-button").css({
             "display": "block"
         });
     }
 });
+
+
+
+
 
 //API call
 

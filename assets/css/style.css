@@ -113,6 +113,25 @@ p {
 .login-button {
     float: right;
 }
-#logout-button{
-    display: none;
+
+#navbarDropdown{
+  display: none;
+
+}
+#save-button {
+    margin-top: 10px;
+    width: auto;
+}
+.diet {
+    text-align: center;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+#dropdown-text {
+    text-transform: capitalize;
+}
+
+#displayName-input {
+    text-transform: capitalize;
 }
