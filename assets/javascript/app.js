@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
+var ingredients;
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
