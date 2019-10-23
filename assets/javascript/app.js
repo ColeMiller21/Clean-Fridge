@@ -25,6 +25,11 @@ var userId;
 var userEmail;
 var userDisplayName;
 var dietVal;
+var ingredients = [];
+
+//ingredients search by recipe variables 
+var unirest = require("unirest");
+var req = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients");
 
 // Log in button 
 
@@ -159,6 +164,9 @@ $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
 
+
+
+
     $("#recipie-div").css({
         "display": "block"
     })
@@ -189,6 +197,18 @@ $("#button-addon2").on("click", function () {
     ingredients.push(search);
     console.log(ingredients)
 
+
+    req.headers({
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "7f9e0e79dcmshe3dd3c7edb8abdbp125ce8jsn133da7b2d8ae"
+    });
+
+
+    req.end(function (res) {
+        if (res.error) throw new Error(res.error);
+
+        console.log(res.body);
+    });
 
     //create var for p tag add classes??
     //then append p.search?
