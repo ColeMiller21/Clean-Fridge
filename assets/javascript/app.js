@@ -14,12 +14,8 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-<<<<<<< HEAD
-var ingredients;
-=======
 var ingredients = [];
 var ingredientsString = ingredients.toString();
->>>>>>> 6e32454f0803368dca12020fc35cce4e74906fc6
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
