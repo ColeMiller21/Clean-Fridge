@@ -106,7 +106,7 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userEmail = firebaseUser.email;
         userDisplayName = firebaseUser.displayName;
 
-        database.ref("user/" + firebase.auth().userId + "/profile").set({
+        database.ref("user/" + firebase.auth().userId).set({
             userId: userId,
             userEmail: userEmail
         });
