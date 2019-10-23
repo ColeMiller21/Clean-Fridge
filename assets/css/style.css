@@ -153,3 +153,7 @@ overflow-y: visible;
 height: 560px;
     overflow-y: scroll;
 }
+
+#displayName-input {
+    text-transform: capitalize;
+}

@@ -14,13 +14,20 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+<<<<<<< HEAD
 var ingredients;
+=======
+var ingredients = [];
+var ingredientsString = ingredients.toString();
+>>>>>>> 6e32454f0803368dca12020fc35cce4e74906fc6
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
 var btnSignup = $("#signup-button");
 var btnLogout = $("#logout-button");
 var btnSave = $("#save-button");
+var user;
+var userRef;
 var userId;
 var userEmail;
 var userDisplayName;
@@ -37,6 +44,8 @@ btnLogin.on("click", function (e) {
     // Sign in
     var promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch(console.log(e.message));
+
+
 
 });
 
@@ -55,6 +64,7 @@ btnSignup.on("click", function (e) {
     txtEmail.val("");
 
 
+
 });
 
 // Logout button click
@@ -62,6 +72,23 @@ btnLogout.on("click", function (e) {
     console.log("logged out");
     firebase.auth().signOut();
     $("#navbarDropdown").hide();
+});
+
+$("#save-button").on("click", function () {
+    userDisplayName = $("#displayName-input").val();
+    console.log("display name " + userDisplayName);
+    dietVal = $("input[name='diet']:checked").val();
+    console.log("diet preference " + dietVal);
+
+    user = firebase.auth().firebaseUser;
+
+    database.ref("users/" + userId).set({
+        userId: userId,
+        userEmail: userEmail,
+        displayName: userDisplayName,
+        dietVal: dietVal
+    });
+
 });
 
 // User state change if else functions
@@ -83,23 +110,15 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userEmail = firebaseUser.email;
         userDisplayName = firebaseUser.displayName;
 
+        database.ref("user/" + firebase.auth().userId + "/profile").set({
+            userId: userId,
+            userEmail: userEmail
+        });
+
+
         //pushing to firebase to save user data.
         // Save changes button click
-        $("#save-button").on("click", function () {
-            userDisplayName = $("#displayName-input").val();
-            console.log("display name " + userDisplayName);
-            dietVal = $("input[name='diet']:checked").val();
-            console.log("diet preference " + dietVal);
 
-
-            database.ref("users/" + userId).set({
-                userId: userId,
-                userEmail: userEmail,
-                displayName: userDisplayName,
-                dietVal: dietVal
-            });
-
-        });
     }
     else {
         console.log("not logged in");
