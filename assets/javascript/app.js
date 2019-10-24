@@ -167,7 +167,21 @@ $.ajax(settings).done(function (response) {
     }
 });
 
+//Api for recipe search
+var settings1 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181"
+    }
+}
 
+$.ajax(settings1).done(function (response1) {
+    console.log("MY recipe: " + response1);
+});
 
 
 // search button click to display ingredients div
