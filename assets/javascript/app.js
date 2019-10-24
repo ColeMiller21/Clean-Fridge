@@ -28,11 +28,15 @@ var userId;
 var userEmail;
 var userDisplayName;
 var dietVal;
+var firebaseUser;
+var UID;
 
 // Log in button 
 
 btnLogin.on("click", function (e) {
     event.preventDefault();
+    txtEmail = $("#email-login-input");
+    txtPassword = $("#pw-login-input");
     var email = txtEmail.val();
     var password = txtPassword.val();
     var auth = firebase.auth();
@@ -59,9 +63,21 @@ btnSignup.on("click", function (e) {
     txtPassword.val("");
     txtEmail.val("");
 
+    userDisplayName = $("#displayName-input").val();
+    dietVal = $("input[name='diet']:checked").val();
+
+    database.ref("users/" + userId).set({
+        userId: userId,
+        userEmail: userEmail,
+        displayName: userDisplayName,
+        dietVal: dietVal
+    });
+    //setting sign up data to realtime database
 
 
 });
+
+
 
 // Logout button click
 btnLogout.on("click", function (e) {
@@ -70,22 +86,7 @@ btnLogout.on("click", function (e) {
     $("#navbarDropdown").hide();
 });
 
-$("#save-button").on("click", function () {
-    userDisplayName = $("#displayName-input").val();
-    console.log("display name " + userDisplayName);
-    dietVal = $("input[name='diet']:checked").val();
-    console.log("diet preference " + dietVal);
 
-    user = firebase.auth().firebaseUser;
-
-    database.ref("users/" + userId).set({
-        userId: userId,
-        userEmail: userEmail,
-        displayName: userDisplayName,
-        dietVal: dietVal
-    });
-
-});
 
 // User state change if else functions
 
@@ -98,7 +99,10 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         $("#navbarDropdown").css({
             "display": "block"
         });
-        $("#signup-login-button").css({
+        $("#signup-link").css({
+            "display": "none"
+        });
+        $("#login-link").css({
             "display": "none"
         });
 
@@ -106,23 +110,21 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userEmail = firebaseUser.email;
         userDisplayName = firebaseUser.displayName;
 
-        console.log(firebaseUser.uid);
-        database.ref("user/" + firebaseUser.uid).set({
-            userId: userId,
-            userEmail: userEmail
-        });
+        console.log(firebase.auth().currentUser)
+        //need to figure out how to snapshot realtime database to grab data 
+        //from current user to store preferences into variables.
 
-
-        //pushing to firebase to save user data.
-        // Save changes button click
 
     }
     else {
         console.log("not logged in");
-        $("#navbarDropdown").css({
+        $(".dropdown-toggle").css({
             "display": "hide"
         });
-        $("#signup-login-button").css({
+        $("#signup-link").css({
+            "display": "block"
+        });
+        $("#login-link").css({
             "display": "block"
         });
     }
