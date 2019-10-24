@@ -90,7 +90,7 @@ body{width: 90%;
 }
 
 p {
-    text-transform: capitalize;
+    
 }
 
 .modal {
@@ -152,4 +152,8 @@ overflow-y: visible;
 .overflow-div {
 height: 560px;
     overflow-y: scroll;
+}
+
+#displayName-input {
+    text-transform: capitalize;
 }
