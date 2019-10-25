@@ -57,23 +57,24 @@ btnSignup.on("click", function (e) {
     email = txtEmail.val();
     password = txtPassword.val();
     auth = firebase.auth();
-
-    // check for real email
-    promise = auth.createUserWithEmailAndPassword(email, password);
-    promise.catch(console.log(e.message));
-    txtPassword.val("");
-    txtEmail.val("");
-
     userDisplayName = $("#displayName-input").val();
     dietVal = $("input[name='diet']:checked").val();
-
-    database.ref("users/" + userId).set({
-        userId: userId,
-        userEmail: userEmail,
-        displayName: userDisplayName,
-        dietVal: dietVal
-    });
-    //setting sign up data to realtime database
+    // check for real email
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(function (response) {
+            console.log(response)
+            var user = response.user.uid
+            console.log(user);
+            database.ref("users/" + user).set({
+                user: user,
+                email: email,
+                displayName: userDisplayName,
+                dietVal: dietVal
+            });
+        })
+        .catch(console.log(e.message));
+    txtPassword.val("");
+    txtEmail.val("");
 
 });
 
@@ -107,18 +108,19 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userId = firebaseUser.uid;
         userEmail = firebaseUser.email;
         userDisplayName = firebaseUser.displayName;
+        console.log(userId);
+        database.ref("users/" + userId).on("value", function (snapshot) {
+            var sv = snapshot.val();
+            console.log(sv.dietVal);
 
-        console.log(firebase.auth().currentUser)
+        })
         //need to figure out how to snapshot realtime database to grab data 
         //from current user to store preferences into variables.
-
     }
 
     else {
         console.log("not logged in");
 
-
-        console.log("not logged in");
         $("#navbarDropdown").css({
             "display": "hide"
         });
@@ -139,7 +141,7 @@ function toStringify() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
