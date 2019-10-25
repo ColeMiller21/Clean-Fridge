@@ -169,22 +169,23 @@ function toStringify() {
 };
 
 //Api for recipe search
-var settings1 = {
-    "async": true,
-    "crossDomain": true,
-    "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
-    "method": "GET",
-    "headers": {
-        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": API_KEY,
+function getRecipe() {
+    var settings1 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": API_KEY,
+        }
     }
-}
 
-$.ajax(settings1).done(function (response) {
-    console.log(response);
-});
+    $.ajax(settings1).done(function (response) {
+        console.log(response);
+    });
 
-
+};
 
 // search button click to display ingredients div
 $("#search-button").on("click", function () {
