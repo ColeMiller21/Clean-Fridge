@@ -87,9 +87,6 @@ btnLogout.on("click", function (e) {
 });
 
 
-
-// User state change if else functions
-
 // User state change if else functions
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
     if (firebaseUser) {
@@ -115,44 +112,24 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         //need to figure out how to snapshot realtime database to grab data 
         //from current user to store preferences into variables.
 
-
     }
+
     else {
         console.log("not logged in");
-        $(".dropdown-toggle").css({
-            //pushing to firebase to save user data.
-            // Save changes button click
-            $("#save-button").on("click", function () {
-                userDisplayName = $("#displayName-input").val();
-                console.log("display name " + userDisplayName);
-                dietVal = $("input[name='diet']:checked").val();
-                console.log("diet preference " + dietVal);
 
 
-                database.ref("users/" + userId).set({
-                    userId: userId,
-                    userEmail: userEmail,
-                    displayName: userDisplayName,
-                    dietVal: dietVal
-                });
-
-            });
-        } else {
-            console.log("not logged in");
-            $("#navbarDropdown").css({
-                "display": "hide"
-            });
-            $("#signup-link").css({
-                "display": "block"
-            });
-            $("#login-link").css({
-                "display": "block"
-            });
-        }
+        console.log("not logged in");
+        $("#navbarDropdown").css({
+            "display": "hide"
+        });
+        $("#signup-link").css({
+            "display": "block"
+        });
+        $("#login-link").css({
+            "display": "block"
+        });
+    };
 });
-
-
-
 
 
 function toStringify() {
@@ -162,7 +139,7 @@ function toStringify() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + ingredientsStr,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -176,16 +153,30 @@ function toStringify() {
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
 
-            var recipeDiv = $("<div>");
-            recipeDiv.addClass("recipe-div");
+            /*  var recipeDiv = $("<div>");
+              recipeDiv.addClass("recipe-div");
+              var image = $("<img>");
+              image.addClass("img-thumbnail");
+              image.attr("src", response[i].image);
+              var title = $("<p>");
+              title.text(response[i].title);
+  
+              recipeDiv.append(title);
+              recipeDiv.append(image);
+              $("#recipe-container").append(recipeDiv);
+  */
+
+            var recipeDiv = $("<div>")
+            recipeDiv.addClass("recipeDiv");
             var image = $("<img>");
             image.addClass("img-thumbnail");
+            image.attr("id", "recipe-image")
             image.attr("src", response[i].image);
-            var title = $("<p>");
-            title.text(response[i].title);
 
-            recipeDiv.append(title);
             recipeDiv.append(image);
+            $("#recipe-container").append(recipeDiv);
+
+
 
         }
     });
@@ -196,7 +187,7 @@ $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
 
-    $("#recipie-div").css({
+    $("#recipe-container").css({
         "display": "block"
     })
     //appending the original page to ingredients div, everything css will be applied here
@@ -212,7 +203,9 @@ $("#search-button").on("click", function () {
     $("#ingredients-container").css({
         "padding": "10px"
     })
-
+    $("#search-button").css({
+        "display": "none"
+    })
 });
 
 
