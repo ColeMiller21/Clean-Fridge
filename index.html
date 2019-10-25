@@ -38,8 +38,8 @@
             <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#" id="signup-login-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-signup">Sign Up/Log in</a>
+                        <a class="nav-link" href="#" id="signup-link" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-signup">Sign Up</a>
                     </li>
                     <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -51,15 +51,56 @@
                                         <input type="email" class="form-control" id="email-input"
                                             aria-describedby="basic-addon3" placeholder="User@email.com">
                                     </div>
-                                    <label for="basic-url" id="pw-signup">Password: </label>
+                                    <label for="basic-url" id="pw-signup">Password (must be at least 6 characters):
+                                    </label>
                                     <div class="input-group mb-3">
                                         <input type="password" class="form-control" id="pw-input"
                                             aria-describedby="basic-addon3" placeholder="Password">
                                     </div>
+                                    <label for="basic-url" id="email-signup">Display Name: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="displayName-input"
+                                            aria-describedby="basic-addon3" placeholder="Display Name">
+                                    </div>
+                                    <form id="diet-form">
+                                        <div id="radio">
+                                            <p>Diet Preference: </p>
+                                            <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
+                                            <input type="radio" class="diet" name="diet" value="Vegan">Vegan
+                                            <input type="radio" class="diet" name="diet" value="Paleo">Paleo
+                                            <input type="radio" class="diet" name="diet" value="null">None
+                                        </div>
+                                    </form>
                                     <div id="buttons">
                                         <button type="button" class="btn btn-primary signup-button" id="signup-button"
                                             data-dismiss="modal">Sign
                                             Up</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="login-link" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-login">Log in</a>
+                    </li>
+                    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div id="signup-page" class="modal-page">
+                                    <label for="basic-url" id="email-signup">Email: </label>
+                                    <div class="input-group mb-3">
+                                        <input type="email" class="form-control" id="email-login-input"
+                                            aria-describedby="basic-addon3" placeholder="User@email.com">
+                                    </div>
+                                    <label for="basic-url" id="pw-signup">Password:
+                                    </label>
+                                    <div class="input-group mb-3">
+                                        <input type="password" class="form-control" id="pw-login-input"
+                                            aria-describedby="basic-addon3" placeholder="Password">
+                                    </div>
+                                    <div id="buttons">
                                         <button type="button" class="btn btn-primary login-button" id="login-button"
                                             data-dismiss="modal">Log
                                             In</button>
@@ -68,7 +109,6 @@
                             </div>
                         </div>
                     </div>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,32 +116,22 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
-                                data-target=".bd-example-modal-lg-pref">Preferences</a>
+                                data-target=".bd-example-modal-lg-account">Account</a>
 
                             <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
 
                         </div>
                     </li>
 
-                    <div class="modal fade bd-example-modal-lg-pref" tabindex="-1" role="dialog"
+                    <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg">
                             <div class="modal-content modal-page">
-                                <label for="basic-url" id="email-signup">Display Name: </label>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control" id="displayName-input"
-                                        aria-describedby="basic-addon3" placeholder="Display Name">
-                                </div>
-                                <form id="diet-form">
-                                    <div id="radio">
-                                        <p class="">Diet Preference: </p>
-                                        <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
-                                        <input type="radio" class="diet" name="diet" value="Vegan">Vegan
-                                        <input type="radio" class="diet" name="diet" value="Paleo">Paleo
-                                    </div>
-                                </form>
-                                <button type="button" class="btn btn-primary login-button" id="save-button"
-                                    data-dismiss="modal">Save Changes</button>
+
+
+
+
+
                             </div>
                         </div>
                     </div>
@@ -149,252 +179,6 @@
             <h1 id="h-text">Clean Fridge</h1>
 
         </header>
-
-        <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-md-6" id="recipie-div">
-                    <div class="overflow-div">
-                        <div class="overflow-auto">
-
-                            <div class="row ">
-                                <div class="col-md-5 rec-imgs">
-
-                                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*"
-                                        class="align-self-start mr-3 recipe-images"
-                                        alt="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*">
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Filet Mignon</h2>
-                                    <p>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">2 tbsp. extra-virgin olive oil</li>
-                                            <li class="list-group-item">4 (6-oz.) filet mignon</li>
-                                            <li class="list-group-item">Kosher salt</li>
-                                            <li class="list-group-item">4 tbsp. butter</li>
-                                            <li class="list-group-item">1 tbsp. roughly chopped rosemary</li>
-                                        </ul>
-                                    </p>
-                                </div>
-                                <div class="col-md-5 align-self-end">
-                                    <a class="btn btn-primary div-btn1" data-toggle="collapse" href="#collapseExample"
-                                        role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        See Full Recipe
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div id="recipe">
-
-
-                                    </div>
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <ol class="list-group">
-                                                <li class="list-group-item">Preheat oven to 400°. In a large skillet
-                                                    over
-                                                    medium-high heat, heat oil. Season steak with salt and pepper on
-                                                    both
-                                                    sides. When oil is just about to smoke, add steak. Cook until very
-                                                    seared, about 5 minutes, then flip and add butter and rosemary.
-                                                    Baste
-                                                    with butter and cook another 5 minutes. </li>
-                                                <li class="list-group-item">Transfer skillet to oven and cook until
-                                                    cooked
-                                                    to your liking, about 10 minutes for medium.</li>
-                                                <li class="list-group-item">Remove from pan and let rest 5 minutes
-                                                    before
-                                                    slicing.</li>
-
-                                                </0l>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="overflow-auto">
-
-                            <div class="row ">
-                                <div class="col-md-5 rec-imgs">
-
-                                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*"
-                                        class="align-self-start mr-3 recipe-images"
-                                        alt="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*">
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Filet Mignon</h2>
-                                    <p>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">2 tbsp. extra-virgin olive oil</li>
-                                            <li class="list-group-item">4 (6-oz.) filet mignon</li>
-                                            <li class="list-group-item">Kosher salt</li>
-                                            <li class="list-group-item">4 tbsp. butter</li>
-                                            <li class="list-group-item">1 tbsp. roughly chopped rosemary</li>
-                                        </ul>
-                                    </p>
-                                </div>
-                                <div class="col-md-5 align-self-end">
-                                    <a class="btn btn-primary div-btn1" data-toggle="collapse" href="#collapseExample"
-                                        role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        See Full Recipe
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <ol class="list-group">
-                                                <li class="list-group-item">Preheat oven to 400°. In a large skillet
-                                                    over
-                                                    medium-high heat, heat oil. Season steak with salt and pepper on
-                                                    both
-                                                    sides. When oil is just about to smoke, add steak. Cook until very
-                                                    seared, about 5 minutes, then flip and add butter and rosemary.
-                                                    Baste
-                                                    with butter and cook another 5 minutes. </li>
-                                                <li class="list-group-item">Transfer skillet to oven and cook until
-                                                    cooked
-                                                    to your liking, about 10 minutes for medium.</li>
-                                                <li class="list-group-item">Remove from pan and let rest 5 minutes
-                                                    before
-                                                    slicing.</li>
-
-                                                </0l>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="overflow-auto">
-
-                            <div class="row ">
-                                <div class="col-md-5 rec-imgs">
-
-                                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*"
-                                        class="align-self-start mr-3 recipe-images"
-                                        alt="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*">
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Filet Mignon</h2>
-                                    <p>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">2 tbsp. extra-virgin olive oil</li>
-                                            <li class="list-group-item">4 (6-oz.) filet mignon</li>
-                                            <li class="list-group-item">Kosher salt</li>
-                                            <li class="list-group-item">4 tbsp. butter</li>
-                                            <li class="list-group-item">1 tbsp. roughly chopped rosemary</li>
-                                        </ul>
-                                    </p>
-                                </div>
-                                <div class="col-md-5 align-self-end">
-                                    <a class="btn btn-primary div-btn1" data-toggle="collapse" href="#collapseExample"
-                                        role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        See Full Recipe
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <ol class="list-group">
-                                                <li class="list-group-item">Preheat oven to 400°. In a large skillet
-                                                    over
-                                                    medium-high heat, heat oil. Season steak with salt and pepper on
-                                                    both
-                                                    sides. When oil is just about to smoke, add steak. Cook until very
-                                                    seared, about 5 minutes, then flip and add butter and rosemary.
-                                                    Baste
-                                                    with butter and cook another 5 minutes. </li>
-                                                <li class="list-group-item">Transfer skillet to oven and cook until
-                                                    cooked
-                                                    to your liking, about 10 minutes for medium.</li>
-                                                <li class="list-group-item">Remove from pan and let rest 5 minutes
-                                                    before
-                                                    slicing.</li>
-
-                                                </0l>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="overflow-auto">
-
-                            <div class="row ">
-                                <div class="col-md-5 rec-imgs">
-
-                                    <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*"
-                                        class="align-self-start mr-3 recipe-images"
-                                        alt="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-filet-mignon-horizontal-1541189043.jpeg?resize=480:*">
-                                </div>
-                                <div class="col-md-6">
-                                    <h2>Filet Mignon</h2>
-                                    <p>
-                                        <ul class="list-group list-group-flush">
-                                            <li class="list-group-item">2 tbsp. extra-virgin olive oil</li>
-                                            <li class="list-group-item">4 (6-oz.) filet mignon</li>
-                                            <li class="list-group-item">Kosher salt</li>
-                                            <li class="list-group-item">4 tbsp. butter</li>
-                                            <li class="list-group-item">1 tbsp. roughly chopped rosemary</li>
-                                        </ul>
-                                    </p>
-                                </div>
-
-                                <div class="col-md-5 align-self-end">
-                                    <a class="btn btn-primary div-btn1" data-toggle="collapse" href="#collapseExample"
-                                        role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        See Full Recipe
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <ol class="list-group">
-                                                <li class="list-group-item">Preheat oven to 400°. In a large skillet
-                                                    over
-                                                    medium-high heat, heat oil. Season steak with salt and pepper on
-                                                    both
-                                                    sides. When oil is just about to smoke, add steak. Cook until very
-                                                    seared, about 5 minutes, then flip and add butter and rosemary.
-                                                    Baste
-                                                    with butter and cook another 5 minutes. </li>
-                                                <li class="list-group-item">Transfer skillet to oven and cook until
-                                                    cooked
-                                                    to your liking, about 10 minutes for medium.</li>
-                                                <li class="list-group-item">Remove from pan and let rest 5 minutes
-                                                    before
-                                                    slicing.</li>
-
-                                                </0l>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-6" id="ing-div">
-
-                </div>
-            </div>
-        </div>
-
         <div class="container" id="ingredients-container">
             <div class="input-group mb-3" id="full-input">
                 <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
@@ -407,12 +191,15 @@
             <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
 
 
-
-
-
             <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
                 Recipes</button>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 my-auto" id="recipe-container">
 
+                </div>
+            </div>
         </div>
 
 

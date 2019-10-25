@@ -25,6 +25,8 @@ var userId;
 var userEmail;
 var userDisplayName;
 var dietVal;
+var firebaseUser;
+var UID;
 var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
 var ingredientsStr = '';
@@ -36,6 +38,8 @@ const API_KEY = "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181";
 
 btnLogin.on("click", function (e) {
     event.preventDefault();
+    txtEmail = $("#email-login-input");
+    txtPassword = $("#pw-login-input");
     var email = txtEmail.val();
     var password = txtPassword.val();
     var auth = firebase.auth();
@@ -53,22 +57,36 @@ btnSignup.on("click", function (e) {
     email = txtEmail.val();
     password = txtPassword.val();
     auth = firebase.auth();
-
+    userDisplayName = $("#displayName-input").val();
+    dietVal = $("input[name='diet']:checked").val();
     // check for real email
-    promise = auth.createUserWithEmailAndPassword(email, password);
-    promise.catch(console.log(e.message));
+    auth.createUserWithEmailAndPassword(email, password)
+        .then(function (response) {
+            console.log(response)
+            var user = response.user.uid
+            console.log(user);
+            database.ref("users/" + user).set({
+                user: user,
+                email: email,
+                displayName: userDisplayName,
+                dietVal: dietVal
+            });
+        })
+        .catch(console.log(e.message));
     txtPassword.val("");
     txtEmail.val("");
 
-
 });
 
-// Logout button click
+
+
+// Logout button click
 btnLogout.on("click", function (e) {
     console.log("logged out");
     firebase.auth().signOut();
     $("#navbarDropdown").hide();
 });
+
 
 // User state change if else functions
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
@@ -80,44 +98,40 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         $("#navbarDropdown").css({
             "display": "block"
         });
-        $("#signup-login-button").css({
+        $("#signup-link").css({
+            "display": "none"
+        });
+        $("#login-link").css({
             "display": "none"
         });
 
         userId = firebaseUser.uid;
         userEmail = firebaseUser.email;
         userDisplayName = firebaseUser.displayName;
+        console.log(userId);
+        database.ref("users/" + userId).on("value", function (snapshot) {
+            var sv = snapshot.val();
+            console.log(sv.dietVal);
 
-        //pushing to firebase to save user data.
-        // Save changes button click
-        $("#save-button").on("click", function () {
-            userDisplayName = $("#displayName-input").val();
-            console.log("display name " + userDisplayName);
-            dietVal = $("input[name='diet']:checked").val();
-            console.log("diet preference " + dietVal);
+        })
+        //need to figure out how to snapshot realtime database to grab data 
+        //from current user to store preferences into variables.
+    }
 
+    else {
+        console.log("not logged in");
 
-            database.ref("users/" + userId).set({
-                userId: userId,
-                userEmail: userEmail,
-                displayName: userDisplayName,
-                dietVal: dietVal
-            });
-
-        });
-    } else {
-        console.log("not logged in");
         $("#navbarDropdown").css({
             "display": "hide"
         });
-        $("#signup-login-button").css({
+        $("#signup-link").css({
             "display": "block"
         });
-    }
+        $("#login-link").css({
+            "display": "block"
+        });
+    };
 });
-
-
-
 
 
 function toStringify() {
@@ -127,7 +141,7 @@ function toStringify() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=6&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -140,21 +154,39 @@ function toStringify() {
 
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
-
-
             var recipeDiv = $("<div>");
             recipeDiv.addClass("recipe-div");
             var image = $("<img>");
             image.addClass("img-thumbnail");
+            image.attr("id", "recipe-image")
             image.attr("src", response[i].image);
-            var title = $("<p>");
-            title.text(response[i].title);
 
-            recipeDiv.append(title);
             recipeDiv.append(image);
+            $("#recipe-container").append(recipeDiv);
+
+
 
         }
     });
+};
+
+//Api for recipe search
+function getRecipe() {
+    var settings1 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": API_KEY,
+        }
+    }
+
+    $.ajax(settings1).done(function (response) {
+        console.log(response);
+    });
+
 };
 
 // search button click to display ingredients div
@@ -162,7 +194,7 @@ $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
 
-    $("#recipie-div").css({
+    $("#recipe-container").css({
         "display": "block"
     })
     //appending the original page to ingredients div, everything css will be applied here
@@ -178,7 +210,9 @@ $("#search-button").on("click", function () {
     $("#ingredients-container").css({
         "padding": "10px"
     })
-
+    $("#search-button").css({
+        "display": "none"
+    })
 });
 
 
