@@ -112,7 +112,7 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         console.log(userId);
         database.ref("users/" + userId).on("value", function (snapshot) {
             sv = snapshot.val();
-            console.log(sv);
+            console.log(sv.dietVal);
 
         })
         //need to figure out how to snapshot realtime database to grab data 
@@ -159,10 +159,17 @@ function toStringify() {
             recipeDiv.addClass("recipe-div");
             var image = $("<img>");
             image.addClass("img-thumbnail");
-            image.attr("id", "recipe-image")
+            image.attr("id", "recipe-image");
+            image.attr("data-id", response[i].id);
             image.attr("src", response[i].image);
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
+
+
+            var title = $("<p>");
+            title = response[i].title;
+
+            $("#recipe-modal-page").append(title);
 
 
 
@@ -172,8 +179,7 @@ function toStringify() {
 
 $(document).on("click", "#recipe-image", function () {
     console.log("click");
-    $(this).attr("data-target", ".bg-example-modal-lg");
-    $(this).attr("data-toggle", "modal");
+    $(this).attr("data-target").modal("show");
 
 
 
