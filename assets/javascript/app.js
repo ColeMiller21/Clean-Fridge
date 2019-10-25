@@ -26,6 +26,7 @@ var userEmail;
 var userDisplayName;
 var dietVal;
 var firebaseUser;
+var sv;
 var UID;
 var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
@@ -110,8 +111,8 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userDisplayName = firebaseUser.displayName;
         console.log(userId);
         database.ref("users/" + userId).on("value", function (snapshot) {
-            var sv = snapshot.val();
-            console.log(sv.dietVal);
+            sv = snapshot.val();
+            console.log(sv);
 
         })
         //need to figure out how to snapshot realtime database to grab data 
@@ -160,7 +161,6 @@ function toStringify() {
             image.addClass("img-thumbnail");
             image.attr("id", "recipe-image")
             image.attr("src", response[i].image);
-
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
 
@@ -169,6 +169,15 @@ function toStringify() {
         }
     });
 };
+
+$(document).on("click", "#recipe-image", function () {
+    console.log("click");
+    $(this).attr("data-target", ".bg-example-modal-lg");
+    $(this).attr("data-toggle", "modal");
+
+
+
+});
 
 //Api for recipe search
 function getRecipe() {
