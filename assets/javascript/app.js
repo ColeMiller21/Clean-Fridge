@@ -127,7 +127,7 @@ function toStringify() {
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + ingredientsStr,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=" + ingredientsStr,
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -140,6 +140,7 @@ function toStringify() {
 
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
+
 
             var recipeDiv = $("<div>");
             recipeDiv.addClass("recipe-div");
