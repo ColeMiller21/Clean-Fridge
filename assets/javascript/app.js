@@ -152,22 +152,8 @@ function toStringify() {
 
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
-
-            /*  var recipeDiv = $("<div>");
-              recipeDiv.addClass("recipe-div");
-              var image = $("<img>");
-              image.addClass("img-thumbnail");
-              image.attr("src", response[i].image);
-              var title = $("<p>");
-              title.text(response[i].title);
-  
-              recipeDiv.append(title);
-              recipeDiv.append(image);
-              $("#recipe-container").append(recipeDiv);
-  */
-
-            var recipeDiv = $("<div>")
-            recipeDiv.addClass("recipeDiv");
+            var recipeDiv = $("<div>");
+            recipeDiv.addClass("recipe-div");
             var image = $("<img>");
             image.addClass("img-thumbnail");
             image.attr("id", "recipe-image")
@@ -181,6 +167,24 @@ function toStringify() {
         }
     });
 };
+
+//Api for recipe search
+var settings1 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
+    "method": "GET",
+    "headers": {
+        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+        "x-rapidapi-key": API_KEY,
+    }
+}
+
+$.ajax(settings1).done(function (response) {
+    console.log(response);
+});
+
+
 
 // search button click to display ingredients div
 $("#search-button").on("click", function () {
