@@ -184,7 +184,6 @@ function getRecipe() {
     $.ajax(settings1).done(function (response) {
         console.log(response);
     });
-
 };
 
 // search button click to display ingredients div
