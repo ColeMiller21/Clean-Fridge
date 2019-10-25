@@ -157,3 +157,11 @@ height: 560px;
 #displayName-input {
     text-transform: capitalize;
 }
+
+#navbarDropdown {
+    display: none
+}
+
+input[type="radio"] {
+    margin: 0px 10px 0px 10px;
+}
