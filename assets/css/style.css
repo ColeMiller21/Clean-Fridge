@@ -1,17 +1,17 @@
-body{width: 90%;
+body {
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding: 0;
-    background: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ),
-    url(../images/wall-ambient-03.jpg);
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)),
+        url(../images/wall-ambient-03.jpg);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .navbar {
     background-color: transparent !important;
 }
@@ -66,10 +66,10 @@ body{width: 90%;
     border-radius: 50px;
     border-color: #494949 !important;
     transition: all 0.3s ease 0s;
-    }
+}
 
 #list {
-        list-style: none;
+    list-style: none;
 }
 
 .carousel-inner {
@@ -79,6 +79,7 @@ body{width: 90%;
 .row {
     width: 100%
 }
+
 #recipie-div {
     border-radius: 25px;
     border: 2px solid white;
@@ -86,8 +87,10 @@ body{width: 90%;
     display: none;
     max-height: 604px;
     width: 100%;
-    
+
 }
+
+
 
 .modal {
     max-width: 100% !important;
@@ -111,7 +114,7 @@ body{width: 90%;
     border: 2px solid white;
     background: rgba(0, 0, 0, 0.2);
     display: none;
-    
+
 }
 
 .overflow-auto {
@@ -132,7 +135,7 @@ body{width: 90%;
 
 .list-group-flush {
     height: 85px;
-overflow-y: visible;
+    overflow-y: visible;
 
 }
 
@@ -141,7 +144,7 @@ overflow-y: visible;
 }
 
 .overflow-div {
-height: 560px;
+    height: 560px;
     overflow-y: scroll;
 }
 
@@ -163,8 +166,11 @@ input[type="radio"] {
 }
 
 #recipe-container {
-    margin-bottom: 15px;
+    margin-bottom: 60px;
     display: none;
+    margin: 0 auto;
+    justify-content: center;
+
 }
 
 .recipeDiv {
@@ -173,10 +179,6 @@ input[type="radio"] {
 }
 
 #recipe-image {
-    padding: 10px;
+    margin: 5px;
+    float: left;
 }
-
-
-
-
-
