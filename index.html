@@ -14,10 +14,10 @@
         </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-        </script>
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
@@ -25,8 +25,8 @@
     <title>Clean Fridge</title>
 </head>
 
-<body>
 
+<<<<<<< HEAD
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <div class="d-flex w-50 order-0">
@@ -75,54 +75,104 @@
                                         <button type="button" class="btn btn-primary signup-button" id="signup-button"
                                             data-dismiss="modal">Sign
                                             Up</button>
+=======
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="d-flex w-50 order-0">
+            <a class="navbar-brand mr-1"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="signup-link" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-signup">Sign Up</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div id="signup-page" class="modal-page">
+                                <label for="basic-url" id="email-signup">Email: </label>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" id="email-input"
+                                        aria-describedby="basic-addon3" placeholder="User@email.com">
+                                </div>
+                                <label for="basic-url" id="pw-signup">Password (must be at least 6 characters):
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pw-input"
+                                        aria-describedby="basic-addon3" placeholder="Password">
+                                </div>
+                                <label for="basic-url" id="email-signup">Display Name: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="displayName-input"
+                                        aria-describedby="basic-addon3" placeholder="Display Name">
+                                </div>
+                                <form id="diet-form">
+                                    <div id="radio">
+                                        <p>Diet Preference: </p>
+                                        <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
+                                        <input type="radio" class="diet" name="diet" value="Vegan">Vegan
+                                        <input type="radio" class="diet" name="diet" value="Paleo">Paleo
+                                        <input type="radio" class="diet" name="diet" value="null">None
+>>>>>>> 32e5e0daa2f07245b25f40980a3fcfaa86024f0b
                                     </div>
+                                </form>
+                                <div id="buttons">
+                                    <button type="button" class="btn btn-primary signup-button" id="signup-button"
+                                        data-dismiss="modal">Sign
+                                        Up</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="login-link" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-login">Log in</a>
-                    </li>
-                    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div id="signup-page" class="modal-page">
-                                    <label for="basic-url" id="email-signup">Email: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" id="email-login-input"
-                                            aria-describedby="basic-addon3" placeholder="User@email.com">
-                                    </div>
-                                    <label for="basic-url" id="pw-signup">Password:
-                                    </label>
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="pw-login-input"
-                                            aria-describedby="basic-addon3" placeholder="Password">
-                                    </div>
-                                    <div id="buttons">
-                                        <button type="button" class="btn btn-primary login-button" id="login-button"
-                                            data-dismiss="modal">Log
-                                            In</button>
-                                    </div>
+                </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="login-link" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-login">Log in</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div id="signup-page" class="modal-page">
+                                <label for="basic-url" id="email-signup">Email: </label>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" id="email-login-input"
+                                        aria-describedby="basic-addon3" placeholder="User@email.com">
+                                </div>
+                                <label for="basic-url" id="pw-signup">Password:
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pw-login-input"
+                                        aria-describedby="basic-addon3" placeholder="Password">
+                                </div>
+                                <div id="buttons">
+                                    <button type="button" class="btn btn-primary login-button" id="login-button"
+                                        data-dismiss="modal">Log
+                                        In</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id="dropdown-text"></span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
-                                data-target=".bd-example-modal-lg-account">Account</a>
+                </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="dropdown-text"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-account">Account</a>
 
-                            <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
+                        <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
 
-                        </div>
-                    </li>
-
+                    </div>
+                </li>
 
                     <li class="nav-item active">
                         <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
@@ -161,34 +211,33 @@
                             </div>
                         </div>
                     </div>
-                </ul>
-            </div>
-        </nav>
-        <header id="header">
-            <h1 id="h-text">Clean Fridge</h1>
-
-        </header>
-        <div class="container" id="ingredients-container">
-            <div class="input-group mb-3" id="full-input">
-                <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary add div-btn2" type="button" id="button-addon2">Add
-                        +</button>
                 </div>
-            </div>
-            <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
-
-
-            <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
-                Recipes</button>
+            </ul>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 my-auto" id="recipe-container">
+    </nav>
+    <header id="header">
+        <h1 id="h-text">Clean Fridge</h1>
 
-                </div>
+    </header>
+    <div class="container" id="ingredients-container">
+        <div class="input-group mb-3" id="full-input">
+            <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary add div-btn2" type="button" id="button-addon2">Add
+                    +</button>
             </div>
+        </div>
+        <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
+
+
+        <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
+            Recipes</button>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-md-10 my-auto" id="recipe-container">
         </div>
         <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
             aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -241,18 +290,19 @@
 
 
 
-        </div>
-        </div>
+
+    </div>
+    </div>
 
 
 
 
 
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 
-        <script src="assets/javascript/app.js"></script>
-    </body>
+    <script src="assets/javascript/app.js"></script>
+</body>
 
 </html>

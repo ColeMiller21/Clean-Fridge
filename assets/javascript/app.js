@@ -117,9 +117,7 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         })
         //need to figure out how to snapshot realtime database to grab data 
         //from current user to store preferences into variables.
-    }
-
-    else {
+    } else {
         console.log("not logged in");
 
         $("#navbarDropdown").css({
