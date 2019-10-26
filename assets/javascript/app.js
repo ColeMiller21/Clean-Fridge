@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var recipeID;
+
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
@@ -201,14 +201,44 @@ function getRecipe() {
 
     $.ajax(settings1).done(function (response) {
         console.log(response);
-        var recipeDiv2 = $("<div>");
-        var p = $("<p>").text("Directions :" + response.instructions);
-        recipeDiv2.append(p);
-        $("#displayRecipe").append(recipeDiv2)
+        $("#r-title").text(response.title);
+        var rImage = $("<img>");
+        rImage.attr("id", "rImage");
+        rImage.attr("src", response.image);
+
+        $("#r-image").html(rImage);
+
+
+
+
+        var steps = response.analyzedInstructions[0].steps;
+
+        for (var j = 0; j < steps.length; j++) {
+            console.log(steps[j].step);
+            $("#dir-list").append("<li>" + steps[j].step + "</li>");
+
+        }
+
+        var extIngredients = response.extendedIngredients
+        for (var w = 0; w < extIngredients.length; w++) {
+            console.log(extIngredients[w].originalString);
+            $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
+
+        }
+
+
+
+
     });
+
+
+
     // $(this).attr("data-target",
     //     $("#recipeModal").modal("show"));
 };
+
+
+
 
 // search button click to display ingredients div
 $("#search-button").on("click", function () {

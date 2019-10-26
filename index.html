@@ -68,7 +68,7 @@
                                             <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
                                             <input type="radio" class="diet" name="diet" value="Vegan">Vegan
                                             <input type="radio" class="diet" name="diet" value="Paleo">Paleo
-                                            <input type="radio" class="diet" name="diet" value="null">None
+                                            <input type="radio" class="diet" name="diet" value="None">None
                                         </div>
                                     </form>
                                     <div id="buttons">
@@ -123,24 +123,7 @@
                         </div>
                     </li>
 
-                    <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content modal-page">
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div id="displayRecipe"></div>
-
-                                    </div>
-                                </div>
-
-
-
-
-                            </div>
-                        </div>
-                    </div>
                     <li class="nav-item active">
                         <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
                             data-target=".bd-example-modal-lg-faq">FAQ</a>
@@ -207,18 +190,52 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade bd-example-modal-lg" id="recipe-modal" tabindex="-1" role="dialog"
+        <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
             aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content modal-page" id="#recipe-modal-page">
+                <div class="modal-content modal-page">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div id="displayRecipe">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h1 class="text-center" id="r-title"></h1>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-6" id="r-image">
+
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <ul id="ing-list">
+
+                                        </ul>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-8" id="r-direction">
+                                            <ul id="dir-list">
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
 
-
-
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+        </div>
+        </div>
         </div>
 
 
