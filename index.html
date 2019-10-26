@@ -25,198 +25,198 @@
     <title>Clean Fridge</title>
 </head>
 
+
+
 <body>
-
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-            <div class="d-flex w-50 order-0">
-                <a class="navbar-brand mr-1"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="signup-link" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-signup">Sign Up</a>
-                    </li>
-                    <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div id="signup-page" class="modal-page">
-                                    <label for="basic-url" id="email-signup">Email: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" id="email-input"
-                                            aria-describedby="basic-addon3" placeholder="User@email.com">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+        <div class="d-flex w-50 order-0">
+            <a class="navbar-brand mr-1"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="signup-link" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-signup">Sign Up</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-signup" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div id="signup-page" class="modal-page">
+                                <label for="basic-url" id="email-signup">Email: </label>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" id="email-input"
+                                        aria-describedby="basic-addon3" placeholder="User@email.com">
+                                </div>
+                                <label for="basic-url" id="pw-signup">Password (must be at least 6 characters):
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pw-input"
+                                        aria-describedby="basic-addon3" placeholder="Password">
+                                </div>
+                                <label for="basic-url" id="email-signup">Display Name: </label>
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="displayName-input"
+                                        aria-describedby="basic-addon3" placeholder="Display Name">
+                                </div>
+                                <form id="diet-form">
+                                    <div id="radio">
+                                        <p>Diet Preference: </p>
+                                        <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
+                                        <input type="radio" class="diet" name="diet" value="Vegan">Vegan
+                                        <input type="radio" class="diet" name="diet" value="Paleo">Paleo
+                                        <input type="radio" class="diet" name="diet" value="null">None
                                     </div>
-                                    <label for="basic-url" id="pw-signup">Password (must be at least 6 characters):
-                                    </label>
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="pw-input"
-                                            aria-describedby="basic-addon3" placeholder="Password">
-                                    </div>
-                                    <label for="basic-url" id="email-signup">Display Name: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="displayName-input"
-                                            aria-describedby="basic-addon3" placeholder="Display Name">
-                                    </div>
-                                    <form id="diet-form">
-                                        <div id="radio">
-                                            <p>Diet Preference: </p>
-                                            <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
-                                            <input type="radio" class="diet" name="diet" value="Vegan">Vegan
-                                            <input type="radio" class="diet" name="diet" value="Paleo">Paleo
-                                            <input type="radio" class="diet" name="diet" value="null">None
-                                        </div>
-                                    </form>
-                                    <div id="buttons">
-                                        <button type="button" class="btn btn-primary signup-button" id="signup-button"
-                                            data-dismiss="modal">Sign
-                                            Up</button>
-                                    </div>
+                                </form>
+                                <div id="buttons">
+                                    <button type="button" class="btn btn-primary signup-button" id="signup-button"
+                                        data-dismiss="modal">Sign
+                                        Up</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="login-link" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-login">Log in</a>
-                    </li>
-                    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content">
-                                <div id="signup-page" class="modal-page">
-                                    <label for="basic-url" id="email-signup">Email: </label>
-                                    <div class="input-group mb-3">
-                                        <input type="email" class="form-control" id="email-login-input"
-                                            aria-describedby="basic-addon3" placeholder="User@email.com">
-                                    </div>
-                                    <label for="basic-url" id="pw-signup">Password:
-                                    </label>
-                                    <div class="input-group mb-3">
-                                        <input type="password" class="form-control" id="pw-login-input"
-                                            aria-describedby="basic-addon3" placeholder="Password">
-                                    </div>
-                                    <div id="buttons">
-                                        <button type="button" class="btn btn-primary login-button" id="login-button"
-                                            data-dismiss="modal">Log
-                                            In</button>
-                                    </div>
+                </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="login-link" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-login">Log in</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div id="signup-page" class="modal-page">
+                                <label for="basic-url" id="email-signup">Email: </label>
+                                <div class="input-group mb-3">
+                                    <input type="email" class="form-control" id="email-login-input"
+                                        aria-describedby="basic-addon3" placeholder="User@email.com">
+                                </div>
+                                <label for="basic-url" id="pw-signup">Password:
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="password" class="form-control" id="pw-login-input"
+                                        aria-describedby="basic-addon3" placeholder="Password">
+                                </div>
+                                <div id="buttons">
+                                    <button type="button" class="btn btn-primary login-button" id="login-button"
+                                        data-dismiss="modal">Log
+                                        In</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span id="dropdown-text"></span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
-                                data-target=".bd-example-modal-lg-account">Account</a>
+                </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span id="dropdown-text"></span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-account">Account</a>
 
-                            <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
+                        <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
 
-                        </div>
-                    </li>
+                    </div>
+                </li>
 
-                    <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content modal-page">
-
-
-
+                <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content modal-page">
 
 
-                            </div>
+
+
+
                         </div>
                     </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-login">FAQ</a>
-                    </li>
-                    <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content" id="faq-page">
-                                <h3>Frequently Asked Questions</h3>
-                                <br>
-                                <h4>What is Clean Fridge?</h4>
-                                <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
-                                    preparation
-                                    by utilizing the ingredients you have on hand, and to quickly deliver the
-                                    ingredients
-                                    you need right to your door! </p>
-                                <h4>How does Clean Fridge work?</h4>
-                                <p>Clean Fridge generates delicious recipes using the ingredients you input into the
-                                    search
-                                    bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
-                                    you
-                                    the option to have missing ingredients delivered to your door!
-                                </p>
-                                <h4>Why should I sign up?</h4>
-                                <p>If you ever find yourself wondering what you can make with the limited ingredients
-                                    you have
-                                    on hand, Clean Fridge is for you! </p>
-                                <h4>What if I have special dietary needs or restrictions?</h4>
-                                <p>No need to worry! Clean Fridge gives you the ability to filter results based on
-                                    different
-                                    dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
-                                    as well
-                                    as the option to create a profile and save these preferences for future searches.
-                                </p>
-                            </div>
+                </div>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-login">FAQ</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content" id="faq-page">
+                            <h3>Frequently Asked Questions</h3>
+                            <br>
+                            <h4>What is Clean Fridge?</h4>
+                            <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
+                                preparation
+                                by utilizing the ingredients you have on hand, and to quickly deliver the
+                                ingredients
+                                you need right to your door! </p>
+                            <h4>How does Clean Fridge work?</h4>
+                            <p>Clean Fridge generates delicious recipes using the ingredients you input into the
+                                search
+                                bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
+                                you
+                                the option to have missing ingredients delivered to your door!
+                            </p>
+                            <h4>Why should I sign up?</h4>
+                            <p>If you ever find yourself wondering what you can make with the limited ingredients
+                                you have
+                                on hand, Clean Fridge is for you! </p>
+                            <h4>What if I have special dietary needs or restrictions?</h4>
+                            <p>No need to worry! Clean Fridge gives you the ability to filter results based on
+                                different
+                                dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
+                                as well
+                                as the option to create a profile and save these preferences for future searches.
+                            </p>
                         </div>
                     </div>
-                </ul>
-            </div>
-        </nav>
-        <header id="header">
-            <h1 id="h-text">Clean Fridge</h1>
-
-        </header>
-        <div class="container" id="ingredients-container">
-            <div class="input-group mb-3" id="full-input">
-                <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary add div-btn2" type="button" id="button-addon2">Add
-                        +</button>
                 </div>
+            </ul>
+        </div>
+    </nav>
+    <header id="header">
+        <h1 id="h-text">Clean Fridge</h1>
+
+    </header>
+    <div class="container" id="ingredients-container">
+        <div class="input-group mb-3" id="full-input">
+            <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary add div-btn2" type="button" id="button-addon2">Add
+                    +</button>
             </div>
-            <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
-
-
-            <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
-                Recipes</button>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 my-auto" id="recipe-container">
+        <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
 
-                </div>
-            </div>
+
+        <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
+            Recipes</button>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="col-md-10 my-auto" id="recipe-container">
         </div>
-
-
-
-
-        </div>
-        </div>
+    </div>
 
 
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div>
+    </div>
 
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 
-        <script src="assets/javascript/app.js"></script>
-    </body>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
+
+    <script src="assets/javascript/app.js"></script>
+</body>
 
 </html>
