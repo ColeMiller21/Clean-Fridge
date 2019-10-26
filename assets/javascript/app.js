@@ -33,6 +33,10 @@ var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipe
 var ingredientsStr = '';
 var ingredientsURL = apiURL + ingredientsStr;
 const API_KEY = "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181";
+var protein;
+var carbs;
+var fat;
+var calories;
 
 
 // Log in button 
@@ -149,7 +153,7 @@ function toStringify() {
     }
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
+
 
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
@@ -176,11 +180,14 @@ function toStringify() {
 };
 
 $(document).on("click", "#recipe-image", function () {
-    console.log("click");
+
     recipeID = $(this).attr("data-id");
     getRecipe();
+    getChartInfo();
     $(this).attr("data-target",
         $("#recipeModal").modal("show"));
+
+
 });
 
 //Api for recipe search
@@ -198,7 +205,7 @@ function getRecipe() {
     }
 
     $.ajax(settings1).done(function (response) {
-        console.log(response);
+
         $("#r-title").text(response.title);
         var rImage = $("<img>");
         rImage.attr("id", "rImage");
@@ -206,20 +213,17 @@ function getRecipe() {
 
         $("#r-image").html(rImage);
 
-
-
-
         var steps = response.analyzedInstructions[0].steps;
 
         for (var j = 0; j < steps.length; j++) {
-            console.log(steps[j].step);
+
             $("#dir-list").append("<li>" + steps[j].step + "</li>");
 
         }
 
         var extIngredients = response.extendedIngredients
         for (var w = 0; w < extIngredients.length; w++) {
-            console.log(extIngredients[w].originalString);
+
             $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
 
         }
@@ -231,8 +235,56 @@ function getRecipe() {
 
 
 
-    // $(this).attr("data-target",
-    //     $("#recipeModal").modal("show"));
+    // $(this).attr("data-target",  //     $("#recipeModal").modal("show"));
+};
+
+function getChartInfo() {
+    var settings3 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + recipeID + "/nutritionWidget.json",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": API_KEY,
+        }
+    }
+
+    $.ajax(settings3).done(function (response) {
+        console.log(response);
+        calories = parseInt(response.calories);
+        console.log(calories);
+        protein = parseInt(response.protein);
+        carbs = parseInt(response.carbs);
+        fat = parseInt(response.fat);
+
+
+        var options = {
+            title: {
+                text: "Nutrition Data"
+            },
+            subtitles: [{
+                text: "Total Calories: " + calories
+            }],
+            animationEnabled: true,
+            data: [{
+                type: "pie",
+                startAngle: 40,
+                toolTipContent: "<b>{label}</b>: {y}g",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}g",
+                dataPoints: [
+                    { y: protein, label: "Protein" },
+                    { y: carbs, label: "Carbs" },
+                    { y: fat, label: "Fats" },
+
+                ]
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
+    });
 };
 
 
