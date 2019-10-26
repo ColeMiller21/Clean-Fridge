@@ -179,10 +179,8 @@ function toStringify() {
 
 $(document).on("click", "#recipe-image", function () {
     console.log("click");
-    $(this).attr("data-target").modal("show");
-
-
-
+    $(this).attr("data-target",
+        $("#recipeModal").modal("show"));
 });
 
 //Api for recipe search
