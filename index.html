@@ -12,9 +12,10 @@
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
         </script> -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
@@ -23,8 +24,8 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Clean Fridge</title>
-</head>
 
+</head>
 
 
 <body>
@@ -68,8 +69,14 @@
                                         <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
                                         <input type="radio" class="diet" name="diet" value="Vegan">Vegan
                                         <input type="radio" class="diet" name="diet" value="Paleo">Paleo
-                                        <input type="radio" class="diet" name="diet" value="null">None
+                                        <input type="radio" class="diet" name="diet" value="None">None
                                     </div>
+                                </form>
+                                <div id="buttons">
+                                    <button type="button" class="btn btn-primary signup-button" id="signup-button"
+                                        data-dismiss="modal">Sign
+                                        Up</button>
+                                </div>
                                 </form>
                                 <div id="buttons">
                                     <button type="button" class="btn btn-primary signup-button" id="signup-button"
@@ -123,62 +130,45 @@
                     </div>
                 </li>
 
-                <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
+                        data-target=".bd-example-modal-lg-faq">FAQ</a>
+                </li>
+                <div class="modal fade bd-example-modal-lg-faq" tabindex="-1" role="dialog"
                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
-                        <div class="modal-content modal-page">
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div id="displayRecipe"></div>
-
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-                    </div>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-faq">FAQ</a>
-                    </li>
-                    <div class="modal fade bd-example-modal-lg-faq" tabindex="-1" role="dialog"
-                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content" id="faq-page">
-                                <h3>Frequently Asked Questions</h3>
-                                <br>
-                                <h4>What is Clean Fridge?</h4>
-                                <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
-                                    preparation
-                                    by utilizing the ingredients you have on hand, and to quickly deliver the
-                                    ingredients
-                                    you need right to your door! </p>
-                                <h4>How does Clean Fridge work?</h4>
-                                <p>Clean Fridge generates delicious recipes using the ingredients you input into the
-                                    search
-                                    bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
-                                    you
-                                    the option to have missing ingredients delivered to your door!
-                                </p>
-                                <h4>Why should I sign up?</h4>
-                                <p>If you ever find yourself wondering what you can make with the limited ingredients
-                                    you have
-                                    on hand, Clean Fridge is for you! </p>
-                                <h4>What if I have special dietary needs or restrictions?</h4>
-                                <p>No need to worry! Clean Fridge gives you the ability to filter results based on
-                                    different
-                                    dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
-                                    as well
-                                    as the option to create a profile and save these preferences for future searches.
-                                </p>
-                            </div>
+                        <div class="modal-content" id="faq-page">
+                            <h3>Frequently Asked Questions</h3>
+                            <br>
+                            <h4>What is Clean Fridge?</h4>
+                            <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
+                                preparation
+                                by utilizing the ingredients you have on hand, and to quickly deliver the
+                                ingredients
+                                you need right to your door! </p>
+                            <h4>How does Clean Fridge work?</h4>
+                            <p>Clean Fridge generates delicious recipes using the ingredients you input into the
+                                search
+                                bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
+                                you
+                                the option to have missing ingredients delivered to your door!
+                            </p>
+                            <h4>Why should I sign up?</h4>
+                            <p>If you ever find yourself wondering what you can make with the limited ingredients
+                                you have
+                                on hand, Clean Fridge is for you! </p>
+                            <h4>What if I have special dietary needs or restrictions?</h4>
+                            <p>No need to worry! Clean Fridge gives you the ability to filter results based on
+                                different
+                                dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
+                                as well
+                                as the option to create a profile and save these preferences for future searches.
+                            </p>
                         </div>
                     </div>
                 </div>
-            </ul>
+        </div>
+        </ul>
         </div>
     </nav>
     <header id="header">
@@ -206,26 +196,53 @@
         <div class="col-1"></div>
         <div class="col-md-10" id="recipe-container">
         </div>
-        <div class="modal fade bd-example-modal-lg" id="recipe-modal" tabindex="-1" role="dialog"
+        <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
             aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
-                <div class="modal-content modal-page" id="#recipe-modal-page">
+                <div class="modal-content modal-page">
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div id="displayRecipe">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h1 class="text-center" id="r-title"></h1>
+                                    </div>
+                                </div>
 
+                                <div class="row">
+                                    <div class="col-sm-6" id="r-image">
 
+                                    </div>
 
+                                    <div class="col-sm-6">
+                                        <ul id="ing-list">
 
+                                        </ul>
 
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12" id="r-direction">
+                                            <ul id="dir-list">
 
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-12 text-center">
+                                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
     </div>
-    </div>
+
 
 
 
@@ -235,6 +252,9 @@
 
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 
+    <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script> -->
+
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
 
