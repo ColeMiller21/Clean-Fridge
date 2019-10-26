@@ -173,22 +173,24 @@ input[type="radio"] {
 }
 
 #recipe-container {
-    display: none;
+    display: grid;
     margin: 0 auto;
     margin-bottom: 30px;
+    grid-template-columns: auto auto auto;
+    grid-gap: 7px;
+}
 
+#outer-recipe{
+        display: none;
 }
 
 .recipeDiv {
     margin-bottom: 15px;
     border-bottom: 2px solid white;
-
 }
 
 #recipe-image {
     margin: 5px;
-
-    float: left;
     overflow: hidden;
 }
 
@@ -200,10 +202,14 @@ input[type="radio"] {
 #recipe-image:hover {
     transform: scale(1.1);
 }
-}
+
 
 #rImage {
-    width: 250px;
-    height: 250px;
+    
+    border: 2px solid black;
+}
+
+#faq-page {
+    padding: 10px;
 }
 

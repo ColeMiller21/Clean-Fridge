@@ -117,6 +117,9 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         database.ref("users/" + userId).on("value", function (snapshot) {
             sv = snapshot.val();
             console.log(sv.dietVal);
+            $("#dis-name").text(sv.displayName);
+            $("#email-name").text(sv.email);
+            $("#diet-name").text(sv.dietVal);
 
         })
         //need to figure out how to snapshot realtime database to grab data 
@@ -154,7 +157,6 @@ function toStringify() {
 
     $.ajax(settings).done(function (response) {
 
-
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
             var recipeDiv = $("<div>");
@@ -167,13 +169,8 @@ function toStringify() {
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
 
-
             var title = $("<p>");
             title = response[i].title;
-
-            $("#recipe-modal-page").append(title);
-
-
 
         }
     });
@@ -186,7 +183,6 @@ $(document).on("click", "#recipe-image", function () {
     getChartInfo();
     $(this).attr("data-target",
         $("#recipeModal").modal("show"));
-
 
 });
 
@@ -208,6 +204,7 @@ function getRecipe() {
 
         $("#r-title").text(response.title);
         var rImage = $("<img>");
+        rImage.addClass("img-thumbnail");
         rImage.attr("id", "rImage");
         rImage.attr("src", response.image);
 
@@ -227,15 +224,7 @@ function getRecipe() {
             $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
 
         }
-
-
-
-
     });
-
-
-
-    // $(this).attr("data-target",  //     $("#recipeModal").modal("show"));
 };
 
 function getChartInfo() {
@@ -295,7 +284,7 @@ $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
 
-    $("#recipe-container").css({
+    $("#outer-recipe").css({
         "display": "block"
     })
     //appending the original page to ingredients div, everything css will be applied here

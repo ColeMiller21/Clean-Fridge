@@ -18,7 +18,7 @@
         </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
+        </script>
     <link href="https://fonts.googleapis.com/css?family=Raleway|Raleway|IBM+Plex+Sans&display=swap" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
@@ -65,7 +65,7 @@
                                 </div>
                                 <form id="diet-form">
                                     <div id="radio">
-                                        <p>Diet Preference: </p>
+                                        <p>Diet Preference (Coming Soon): </p>
                                         <input type="radio" class="diet" name="diet" value="Vegetarian">Vegetarian
                                         <input type="radio" class="diet" name="diet" value="Vegan">Vegan
                                         <input type="radio" class="diet" name="diet" value="Paleo">Paleo
@@ -78,11 +78,6 @@
                                         Up</button>
                                 </div>
                                 </form>
-                                <div id="buttons">
-                                    <button type="button" class="btn btn-primary signup-button" id="signup-button"
-                                        data-dismiss="modal">Sign
-                                        Up</button>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -123,12 +118,38 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
-                            data-target=".bd-example-modal-lg-account">Account</a>
+                            data-target="#accountModalCenter">Account</a>
+
 
                         <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
 
                     </div>
                 </li>
+                <div class="modal fade" id="accountModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">Account Information</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <h4>Display Name: <span id="dis-name"></span></h4>
+                                <br>
+                                <h4>Email: <span id="email-name"></span></h4>
+                                <br>
+                                <h4>Diet Preference: <span id="diet-name"></span></h4>
+                                <br>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
 
                 <li class="nav-item active">
                     <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
@@ -143,26 +164,27 @@
                             <h4>What is Clean Fridge?</h4>
                             <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
                                 preparation
-                                by utilizing the ingredients you have on hand, and to quickly deliver the
-                                ingredients
-                                you need right to your door! </p>
+                                by utilizing the ingredients you have on hand. </p>
                             <h4>How does Clean Fridge work?</h4>
                             <p>Clean Fridge generates delicious recipes using the ingredients you input into the
-                                search
-                                bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
-                                you
-                                the option to have missing ingredients delivered to your door!
+                                search bar.
                             </p>
                             <h4>Why should I sign up?</h4>
                             <p>If you ever find yourself wondering what you can make with the limited ingredients
                                 you have
                                 on hand, Clean Fridge is for you! </p>
                             <h4>What if I have special dietary needs or restrictions?</h4>
-                            <p>No need to worry! Clean Fridge gives you the ability to filter results based on
+                            <p>No need to worry! Clean Fridge will soon give you the ability to filter results based on
                                 different
                                 dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
                                 as well
                                 as the option to create a profile and save these preferences for future searches.
+                            </p>
+                            <h4>Nutrition Information: </h4>
+                            <p>All Nutrition Data is displayed in a convenient graph located at the bottom of each
+                                recipe display
+                                to help with counting macros.
+
                             </p>
                         </div>
                     </div>
@@ -194,8 +216,11 @@
 
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-md-10" id="recipe-container">
+        <div class="col-md-10" id="outer-recipe">
+            <div id="recipe-container">
+            </div>
         </div>
+
         <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
             aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
@@ -204,7 +229,7 @@
                         <div class="container-fluid">
                             <div id="displayRecipe">
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12" id="r-title-col">
                                         <h1 class="text-center" id="r-title"></h1>
                                     </div>
                                 </div>
@@ -215,16 +240,23 @@
                                     </div>
 
                                     <div class="col-sm-6">
+
+                                        <h4 class="text-center">Ingredients</h4>
                                         <ul id="ing-list">
 
                                         </ul>
 
+
+
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12" id="r-direction">
+
+                                            <h4 class="text-center">Directions</h4>
                                             <ul id="dir-list">
 
                                             </ul>
+
                                         </div>
                                     </div>
 
