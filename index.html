@@ -9,9 +9,9 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
+        </script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
     </script>
@@ -123,52 +123,58 @@
                     </div>
                 </li>
 
-                <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog"
+                <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
                     aria-labelledby="myLargeModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content modal-page">
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="displayRecipe"></div>
+
+                                </div>
+                            </div>
 
 
 
 
                         </div>
                     </div>
-                </div>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
-                        data-target=".bd-example-modal-lg-login">FAQ</a>
-                </li>
-                <div class="modal fade bd-example-modal-lg-login" tabindex="-1" role="dialog"
-                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
-                        <div class="modal-content" id="faq-page">
-                            <h3>Frequently Asked Questions</h3>
-                            <br>
-                            <h4>What is Clean Fridge?</h4>
-                            <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
-                                preparation
-                                by utilizing the ingredients you have on hand, and to quickly deliver the
-                                ingredients
-                                you need right to your door! </p>
-                            <h4>How does Clean Fridge work?</h4>
-                            <p>Clean Fridge generates delicious recipes using the ingredients you input into the
-                                search
-                                bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
-                                you
-                                the option to have missing ingredients delivered to your door!
-                            </p>
-                            <h4>Why should I sign up?</h4>
-                            <p>If you ever find yourself wondering what you can make with the limited ingredients
-                                you have
-                                on hand, Clean Fridge is for you! </p>
-                            <h4>What if I have special dietary needs or restrictions?</h4>
-                            <p>No need to worry! Clean Fridge gives you the ability to filter results based on
-                                different
-                                dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
-                                as well
-                                as the option to create a profile and save these preferences for future searches.
-                            </p>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="faq-button" data-toggle="modal"
+                            data-target=".bd-example-modal-lg-faq">FAQ</a>
+                    </li>
+                    <div class="modal fade bd-example-modal-lg-faq" tabindex="-1" role="dialog"
+                        aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content" id="faq-page">
+                                <h3>Frequently Asked Questions</h3>
+                                <br>
+                                <h4>What is Clean Fridge?</h4>
+                                <p>Clean Fridge is an innovative app designed to take the guesswork out of meal
+                                    preparation
+                                    by utilizing the ingredients you have on hand, and to quickly deliver the
+                                    ingredients
+                                    you need right to your door! </p>
+                                <h4>How does Clean Fridge work?</h4>
+                                <p>Clean Fridge generates delicious recipes using the ingredients you input into the
+                                    search
+                                    bar. If you don't have all of the ingredients on hand, fear not! Clean Fridge gives
+                                    you
+                                    the option to have missing ingredients delivered to your door!
+                                </p>
+                                <h4>Why should I sign up?</h4>
+                                <p>If you ever find yourself wondering what you can make with the limited ingredients
+                                    you have
+                                    on hand, Clean Fridge is for you! </p>
+                                <h4>What if I have special dietary needs or restrictions?</h4>
+                                <p>No need to worry! Clean Fridge gives you the ability to filter results based on
+                                    different
+                                    dietary options (Whole30, Paleo, vegetarian, vegan, dairy-free, gluten-free, etc.),
+                                    as well
+                                    as the option to create a profile and save these preferences for future searches.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -199,7 +205,19 @@
         <div class="col-1"></div>
         <div class="col-md-10 my-auto" id="recipe-container">
         </div>
-    </div>
+        <div class="modal fade bd-example-modal-lg" id="recipe-modal" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content modal-page" id="#recipe-modal-page">
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
 
 
 
@@ -212,7 +230,7 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
 

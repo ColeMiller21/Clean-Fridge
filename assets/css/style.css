@@ -169,12 +169,9 @@ input[type="radio"] {
 }
 
 #recipe-container {
-    margin-bottom: 60px;
     display: none;
     margin: 0 auto;
-    justify-content: center;
-
-
+    margin-bottom: 60px;
 }
 
 .recipeDiv {

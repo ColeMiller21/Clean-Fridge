@@ -14,7 +14,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
+var recipeID;
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
@@ -26,6 +26,7 @@ var userEmail;
 var userDisplayName;
 var dietVal;
 var firebaseUser;
+var sv;
 var UID;
 var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
@@ -110,15 +111,13 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         userDisplayName = firebaseUser.displayName;
         console.log(userId);
         database.ref("users/" + userId).on("value", function (snapshot) {
-            var sv = snapshot.val();
+            sv = snapshot.val();
             console.log(sv.dietVal);
 
         })
         //need to figure out how to snapshot realtime database to grab data 
         //from current user to store preferences into variables.
-    }
-
-    else {
+    } else {
         console.log("not logged in");
 
         $("#navbarDropdown").css({
@@ -158,11 +157,17 @@ function toStringify() {
             recipeDiv.addClass("recipe-div");
             var image = $("<img>");
             image.addClass("img-thumbnail");
-            image.attr("id", "recipe-image")
+            image.attr("id", "recipe-image");
+            image.attr("data-id", response[i].id);
             image.attr("src", response[i].image);
-
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
+
+
+            var title = $("<p>");
+            title = response[i].title;
+
+            $("#recipe-modal-page").append(title);
 
 
 
@@ -170,12 +175,21 @@ function toStringify() {
     });
 };
 
+$(document).on("click", "#recipe-image", function () {
+    console.log("click");
+    recipeID = $(this).attr("data-id");
+    getRecipe();
+    $(this).attr("data-target",
+        $("#recipeModal").modal("show"));
+});
+
 //Api for recipe search
 function getRecipe() {
+
     var settings1 = {
         "async": true,
         "crossDomain": true,
-        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/479101/information",
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + recipeID + "/information",
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -185,8 +199,13 @@ function getRecipe() {
 
     $.ajax(settings1).done(function (response) {
         console.log(response);
+        var recipeDiv2 = $("<div>");
+        var p = $("<p>").text("Directions :" + response.instructions);
+        recipeDiv2.append(p);
+        $("#displayRecipe").append(recipeDiv2)
     });
-
+    // $(this).attr("data-target",
+    //     $("#recipeModal").modal("show"));
 };
 
 // search button click to display ingredients div
