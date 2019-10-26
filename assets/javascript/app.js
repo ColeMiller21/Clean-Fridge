@@ -314,6 +314,14 @@ $("#search-button").on("click", function () {
     $("#search-button").css({
         "display": "none"
     })
+    $("#ingredients-text-ingredients").css({
+        "border-bottom": "3px solid white",
+        "margin-bottom": "20px",
+        "max-width": "60%",
+        "margin-left": "auto",
+        "margin-right": "auto",
+    })
+
 });
 
 
@@ -333,7 +341,8 @@ $("#button-addon2").on("click", function () {
     //create var for p tag add classes??
     //then append p.search?
 
-    $("#ingredients-text").append("<p>" + search + "</p>");
+    $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
+
     //after click is performed clears input field
     $("#search-input").val("");
 });

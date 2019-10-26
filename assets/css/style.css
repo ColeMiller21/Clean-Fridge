@@ -18,7 +18,7 @@ body {
 
 #header {
     width: 100%;
-    height: 200px;
+    height: 155px;
 }
 
 #h-text {
@@ -53,8 +53,16 @@ body {
 
 #ingredients-text {
     color: white;
-    font-family: 'Long Cang', cursive;
-    font-size: 2.5vw;
+    font-family: 'Raleway';
+    font-size: 3.5vw;
+}
+
+#ingredients-text-ingredients {
+    color: white;
+    font-family: 'IBM Plex Sans';
+    font-size: 2vw;
+    text-transform: uppercase;
+
 }
 
 
@@ -167,7 +175,8 @@ input[type="radio"] {
 #recipe-container {
     display: none;
     margin: 0 auto;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+
 }
 
 .recipeDiv {
@@ -178,7 +187,19 @@ input[type="radio"] {
 
 #recipe-image {
     margin: 5px;
+
     float: left;
+    overflow: hidden;
+}
+
+
+#recipe-image {
+    transition: transform .3s ease;
+}
+
+#recipe-image:hover {
+    transform: scale(1.1);
+}
 }
 
 #rImage {

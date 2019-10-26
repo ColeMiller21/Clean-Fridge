@@ -18,8 +18,8 @@
         </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-        </script>
-    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Raleway|IBM+Plex+Sans&display=swap" rel="stylesheet">
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="assets/css/style.css">
@@ -185,6 +185,7 @@
             </div>
         </div>
         <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
+        <h5 id="ingredients-text-ingredients" class="text-center"></h5>
 
 
         <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
@@ -193,7 +194,7 @@
 
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-md-10 my-auto" id="recipe-container">
+        <div class="col-md-10" id="recipe-container">
         </div>
         <div class="modal fade bd-example-modal-lg-account" tabindex="-1" role="dialog" id="recipeModal"
             aria-labelledby="myLargeModalLabel" aria-hidden="true">
