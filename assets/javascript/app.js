@@ -173,6 +173,7 @@ function toStringify() {
             title = response[i].title;
 
         }
+        
     });
 };
 
