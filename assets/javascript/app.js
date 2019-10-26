@@ -292,3 +292,4 @@ $("#search-input").keyup(function (e) {
         $("#button-addon2").click();
     }
 });
+
