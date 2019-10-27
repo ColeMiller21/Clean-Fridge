@@ -31,7 +31,6 @@ var UID;
 var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
 var ingredientsStr = '';
-var ingredientsURL = apiURL + ingredientsStr;
 const API_KEY = "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181";
 var protein;
 var carbs;
@@ -97,8 +96,6 @@ btnLogout.on("click", function (e) {
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
     if (firebaseUser) {
         console.log(firebaseUser);
-
-
         $("#dropdown-text").text(firebaseUser.email);
         $("#navbarDropdown").css({
             "display": "block"
@@ -139,11 +136,10 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
     };
 });
 
-
+// creating ingredients string for search
 function toStringify() {
     ingredientsStr = ingredients.join(',');
     console.log(ingredientsStr);
-
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -168,15 +164,13 @@ function toStringify() {
             image.attr("src", response[i].image);
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
-
             var title = $("<p>");
             title = response[i].title;
-
         }
-        
     });
 };
 
+// Creating recipe modal on click of image
 $(document).on("click", "#recipe-image", function () {
 
     recipeID = $(this).attr("data-id");
@@ -184,7 +178,6 @@ $(document).on("click", "#recipe-image", function () {
     getChartInfo();
     $(this).attr("data-target",
         $("#recipeModal").modal("show"));
-
 });
 
 //Api for recipe search
@@ -202,13 +195,11 @@ function getRecipe() {
     }
 
     $.ajax(settings1).done(function (response) {
-
         $("#r-title").text(response.title);
         var rImage = $("<img>");
         rImage.addClass("img-thumbnail");
         rImage.attr("id", "rImage");
         rImage.attr("src", response.image);
-
         $("#r-image").html(rImage);
 
         var steps = response.analyzedInstructions[0].steps;
@@ -216,18 +207,16 @@ function getRecipe() {
         for (var j = 0; j < steps.length; j++) {
 
             $("#dir-list").append("<li>" + steps[j].step + "</li>");
-
         }
 
         var extIngredients = response.extendedIngredients
         for (var w = 0; w < extIngredients.length; w++) {
-
             $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
-
         }
     });
 };
 
+// creating nutrition chart
 function getChartInfo() {
     var settings3 = {
         "async": true,
@@ -277,19 +266,17 @@ function getChartInfo() {
     });
 };
 
-
-
-
 // search button click to display ingredients div
 $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
-
     $("#outer-recipe").css({
         "display": "block"
     })
+
     //appending the original page to ingredients div, everything css will be applied here
     $("#ing-div").append($("#ingredients-container"));
+
     //css to display the ingredients div from display: none
     $("#ing-div").css({
         "display": "block"
@@ -314,12 +301,7 @@ $("#search-button").on("click", function () {
 
 });
 
-
-//Function that 
-
-
 //appending the search into <p> tag and pushing it into ingredients array
-
 $("#button-addon2").on("click", function () {
     event.preventDefault();
     search = $("#search-input").val();
@@ -327,9 +309,6 @@ $("#button-addon2").on("click", function () {
     //pushing search into ingredients array
     ingredients.push(search);
     console.log(ingredients);
-
-    //create var for p tag add classes??
-    //then append p.search?
 
     $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
 
