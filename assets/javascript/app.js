@@ -161,16 +161,24 @@ function toStringify() {
             console.log(response[i]);
             var recipeDiv = $("<div>");
             recipeDiv.addClass("recipe-div");
+            
+            var figure = $("<figure>");
+            var figCaption = $("<figcaption>");
+
+            figure.addClass("recipe-text-container");
+            figCaption.addClass("recipe-text");
+            figCaption.text(response[i].title);
+            figure.append(figCaption);
+
             var image = $("<img>");
             image.addClass("img-thumbnail");
             image.attr("id", "recipe-image");
             image.attr("data-id", response[i].id);
             image.attr("src", response[i].image);
-            recipeDiv.append(image);
+            recipeDiv.append(figure);
             $("#recipe-container").append(recipeDiv);
 
-            var title = $("<p>");
-            title = response[i].title;
+            
 
         }
         
