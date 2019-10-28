@@ -168,9 +168,10 @@ function toStringify() {
             figure.addClass("recipe-text-container");
             figCaption.addClass("recipe-text");
             figCaption.text(response[i].title);
-            figure.append(figCaption);
-
+            
             var image = $("<img>");
+            figure.append(image);
+            figure.append(figCaption);
             image.addClass("img-thumbnail");
             image.attr("id", "recipe-image");
             image.attr("data-id", response[i].id);
