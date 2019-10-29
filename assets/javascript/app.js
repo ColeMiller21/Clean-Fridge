@@ -1,5 +1,4 @@
 // Firebase authentication
-
 var config = {
     apiKey: "AIzaSyCQZ4uWyQBdW-3HkHtG2O7EpsvmaXGlhdU",
     authDomain: "clean-fridge-6d073.firebaseapp.com",
@@ -323,3 +322,18 @@ $("#search-input").keyup(function (e) {
     }
 });
 
+// pull for random fact
+
+var settings2 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://uselessfacts.jsph.pl/random.json?language=en",
+    "method": "GET"
+}
+
+$.ajax(settings2).done(function (response) {
+    console.log(response)
+    var randomFact = (response.text);
+    console.log(randomFact)
+    $("#randomInfo").append(randomFact);
+});

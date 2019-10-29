@@ -57,7 +57,7 @@ body {
     font-size: 3.5vw;
 }
 
-#ingredients-text-ingredients {
+#ingredients-text-ingredients, #randomInfo {
     color: white;
     font-family: 'IBM Plex Sans';
     font-size: 2vw;
