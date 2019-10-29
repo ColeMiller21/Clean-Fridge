@@ -1,5 +1,4 @@
 // Firebase authentication
-
 var config = {
     apiKey: "AIzaSyCQZ4uWyQBdW-3HkHtG2O7EpsvmaXGlhdU",
     authDomain: "clean-fridge-6d073.firebaseapp.com",
@@ -31,7 +30,6 @@ var UID;
 var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
 var ingredientsStr = '';
-var ingredientsURL = apiURL + ingredientsStr;
 const API_KEY = "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181";
 
 
@@ -91,10 +89,9 @@ btnLogout.on("click", function (e) {
 
 // User state change if else functions
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
+
     if (firebaseUser) {
         console.log(firebaseUser);
-
-
         $("#dropdown-text").text(firebaseUser.email);
         $("#navbarDropdown").css({
             "display": "block"
@@ -113,6 +110,9 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
         database.ref("users/" + userId).on("value", function (snapshot) {
             sv = snapshot.val();
             console.log(sv.dietVal);
+            $("#dis-name").text(sv.displayName);
+            $("#email-name").text(sv.email);
+            $("#diet-name").text(sv.dietVal);
 
         })
         //need to figure out how to snapshot realtime database to grab data 
@@ -132,11 +132,10 @@ firebase.auth().onAuthStateChanged(function (firebaseUser) {
     };
 });
 
-
+// creating ingredients string for search
 function toStringify() {
     ingredientsStr = ingredients.join(',');
     console.log(ingredientsStr);
-
     var settings = {
         "async": true,
         "crossDomain": true,
@@ -149,7 +148,6 @@ function toStringify() {
     }
 
     $.ajax(settings).done(function (response) {
-        console.log(response);
 
         for (var i = 0; i < response.length; i++) {
             console.log(response[i]);
@@ -162,19 +160,13 @@ function toStringify() {
             image.attr("src", response[i].image);
             recipeDiv.append(image);
             $("#recipe-container").append(recipeDiv);
-
-
             var title = $("<p>");
             title = response[i].title;
-
-            $("#recipe-modal-page").append(title);
-
-
-
         }
     });
 };
 
+// Creating recipe modal on click of image
 $(document).on("click", "#recipe-image", function () {
     console.log("click");
     recipeID = $(this).attr("data-id");
@@ -198,6 +190,41 @@ function getRecipe() {
     }
 
     $.ajax(settings1).done(function (response) {
+        $("#r-title").text(response.title);
+        var rImage = $("<img>");
+        rImage.addClass("img-thumbnail");
+        rImage.attr("id", "rImage");
+        rImage.attr("src", response.image);
+        $("#r-image").html(rImage);
+
+        var steps = response.analyzedInstructions[0].steps;
+
+        for (var j = 0; j < steps.length; j++) {
+
+            $("#dir-list").append("<li>" + steps[j].step + "</li>");
+        }
+
+        var extIngredients = response.extendedIngredients
+        for (var w = 0; w < extIngredients.length; w++) {
+            $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
+        }
+    });
+};
+
+// creating nutrition chart
+function getChartInfo() {
+    var settings3 = {
+        "async": true,
+        "crossDomain": true,
+        "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + recipeID + "/nutritionWidget.json",
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+            "x-rapidapi-key": API_KEY,
+        }
+    }
+
+    $.ajax(settings3).done(function (response) {
         console.log(response);
         var recipeDiv2 = $("<div>");
         var p = $("<p>").text("Directions :" + response.instructions);
@@ -212,12 +239,13 @@ function getRecipe() {
 $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
-
-    $("#recipe-container").css({
+    $("#outer-recipe").css({
         "display": "block"
     })
+
     //appending the original page to ingredients div, everything css will be applied here
     $("#ing-div").append($("#ingredients-container"));
+
     //css to display the ingredients div from display: none
     $("#ing-div").css({
         "display": "block"
@@ -242,12 +270,7 @@ $("#search-button").on("click", function () {
 
 });
 
-
-//Function that 
-
-
 //appending the search into <p> tag and pushing it into ingredients array
-
 $("#button-addon2").on("click", function () {
     event.preventDefault();
     search = $("#search-input").val();
@@ -255,9 +278,6 @@ $("#button-addon2").on("click", function () {
     //pushing search into ingredients array
     ingredients.push(search);
     console.log(ingredients);
-
-    //create var for p tag add classes??
-    //then append p.search?
 
     $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
 
@@ -270,4 +290,20 @@ $("#search-input").keyup(function (e) {
     if (e.which == 13) {
         $("#button-addon2").click();
     }
+});
+
+// pull for random fact
+
+var settings2 = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://uselessfacts.jsph.pl/random.json?language=en",
+    "method": "GET"
+}
+
+$.ajax(settings2).done(function (response) {
+    console.log(response)
+    var randomFact = (response.text);
+    console.log(randomFact)
+    $("#randomInfo").append(randomFact);
 });
