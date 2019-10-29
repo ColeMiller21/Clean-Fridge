@@ -278,6 +278,9 @@ $("#button-addon2").on("click", function () {
     //pushing search into ingredients array
     ingredients.push(search);
     console.log(ingredients);
+    $(".container-footer").css({
+        "display": "none"
+    })
 
     $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
 
