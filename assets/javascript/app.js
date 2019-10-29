@@ -1,4 +1,4 @@
-// Firebase authentication
+// Firebase authentication
 var config = {
     apiKey: "AIzaSyCQZ4uWyQBdW-3HkHtG2O7EpsvmaXGlhdU",
     authDomain: "clean-fridge-6d073.firebaseapp.com",
@@ -9,11 +9,11 @@ var config = {
     appId: "1:956307004475:web:4c1e878f1308b77bab101e",
     measurementId: "G-3VZZ2D07RL"
 };
-// Initialize Firebase
+// Initialize Firebase
 firebase.initializeApp(config);
 
 var database = firebase.database();
-var recipeID;
+
 var txtEmail = $("#email-input");
 var txtPassword = $("#pw-input");
 var btnLogin = $("#login-button");
@@ -31,9 +31,13 @@ var ingredients = [];
 var apiURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ignorePantry=false&ingredients=";
 var ingredientsStr = '';
 const API_KEY = "1c0efba3e0msh9d91195fcad438ap1d2f7djsnffb6016a1181";
+var protein;
+var carbs;
+var fat;
+var calories;
 
 
-// Log in button 
+// Log in button 
 
 btnLogin.on("click", function (e) {
     event.preventDefault();
@@ -43,13 +47,13 @@ btnLogin.on("click", function (e) {
     var password = txtPassword.val();
     var auth = firebase.auth();
 
-    // Sign in
+    // Sign in
     var promise = auth.signInWithEmailAndPassword(email, password);
     promise.catch(console.log(e.message));
 
 });
 
-// Sign up button click
+// Sign up button click
 btnSignup.on("click", function (e) {
     event.preventDefault();
     console.log("clicked");
@@ -58,7 +62,7 @@ btnSignup.on("click", function (e) {
     auth = firebase.auth();
     userDisplayName = $("#displayName-input").val();
     dietVal = $("input[name='diet']:checked").val();
-    // check for real email
+    // check for real email
     auth.createUserWithEmailAndPassword(email, password)
         .then(function (response) {
             console.log(response)
@@ -81,13 +85,13 @@ btnSignup.on("click", function (e) {
 
 // Logout button click
 btnLogout.on("click", function (e) {
-    console.log("logged out");
+    console.log("logged out");
     firebase.auth().signOut();
     $("#navbarDropdown").hide();
 });
 
 
-// User state change if else functions
+// User state change if else functions
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
 
     if (firebaseUser) {
@@ -168,9 +172,10 @@ function toStringify() {
 
 // Creating recipe modal on click of image
 $(document).on("click", "#recipe-image", function () {
-    console.log("click");
+
     recipeID = $(this).attr("data-id");
     getRecipe();
+    getChartInfo();
     $(this).attr("data-target",
         $("#recipeModal").modal("show"));
 });
@@ -226,16 +231,42 @@ function getChartInfo() {
 
     $.ajax(settings3).done(function (response) {
         console.log(response);
-        var recipeDiv2 = $("<div>");
-        var p = $("<p>").text("Directions :" + response.instructions);
-        recipeDiv2.append(p);
-        $("#displayRecipe").append(recipeDiv2)
+        calories = parseInt(response.calories);
+        console.log(calories);
+        protein = parseInt(response.protein);
+        carbs = parseInt(response.carbs);
+        fat = parseInt(response.fat);
+
+
+        var options = {
+            title: {
+                text: "Nutrition Data"
+            },
+            subtitles: [{
+                text: "Total Calories: " + calories
+            }],
+            animationEnabled: true,
+            data: [{
+                type: "pie",
+                startAngle: 40,
+                toolTipContent: "<b>{label}</b>: {y}g",
+                showInLegend: "true",
+                legendText: "{label}",
+                indexLabelFontSize: 16,
+                indexLabel: "{label} - {y}g",
+                dataPoints: [
+                    { y: protein, label: "Protein" },
+                    { y: carbs, label: "Carbs" },
+                    { y: fat, label: "Fats" },
+
+                ]
+            }]
+        };
+        $("#chartContainer").CanvasJSChart(options);
     });
-    // $(this).attr("data-target",
-    //     $("#recipeModal").modal("show"));
 };
 
-// search button click to display ingredients div
+// search button click to display ingredients div
 $("#search-button").on("click", function () {
     event.preventDefault();
     console.log("submit-clicked");
@@ -243,14 +274,14 @@ $("#search-button").on("click", function () {
         "display": "block"
     })
 
-    //appending the original page to ingredients div, everything css will be applied here
+    //appending the original page to ingredients div, everything css will be applied here
     $("#ing-div").append($("#ingredients-container"));
 
-    //css to display the ingredients div from display: none
+    //css to display the ingredients div from display: none
     $("#ing-div").css({
         "display": "block"
     });
-    //takes the input bar away
+    //takes the input bar away
     $("#full-input").css({
         "display": "none"
     })
@@ -261,7 +292,7 @@ $("#search-button").on("click", function () {
         "display": "none"
     })
     $("#ingredients-text-ingredients").css({
-        "border-bottom": "1px solid white",
+        "border-bottom": "3px solid white",
         "margin-bottom": "20px",
         "max-width": "60%",
         "margin-left": "auto",
@@ -270,25 +301,24 @@ $("#search-button").on("click", function () {
 
 });
 
-//appending the search into <p> tag and pushing it into ingredients array
+//appending the search into <p> tag and pushing it into ingredients array
 $("#button-addon2").on("click", function () {
     event.preventDefault();
     search = $("#search-input").val();
     console.log(search);
-    //pushing search into ingredients array
+    //pushing search into ingredients array
     ingredients.push(search);
     console.log(ingredients);
+
+    $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
     $(".container-footer").css({
         "display": "none"
     })
-
-    $("#ingredients-text-ingredients").append("<p>" + search + "</p>");
-
-    //after click is performed clears input field
+    //after click is performed clears input field
     $("#search-input").val("");
 });
 
-//allowing enter key to be pressed to do click function for add button
+//allowing enter key to be pressed to do click function for add button
 $("#search-input").keyup(function (e) {
     if (e.which == 13) {
         $("#button-addon2").click();
