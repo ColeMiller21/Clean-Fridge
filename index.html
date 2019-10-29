@@ -9,10 +9,6 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-        </script> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
         </script>
@@ -24,7 +20,6 @@
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Clean Fridge</title>
-
 </head>
 
 
@@ -104,8 +99,7 @@
                                 </div>
                                 <div id="buttons">
                                     <button type="button" class="btn btn-primary login-button" id="login-button"
-                                        data-dismiss="modal">Log
-                                        In</button>
+                                        data-dismiss="modal">Log In</button>
                                 </div>
                             </div>
                         </div>
@@ -119,12 +113,10 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#" id="preferences-button" data-toggle="modal"
                             data-target="#accountModalCenter">Account</a>
-
-
                         <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
-
                     </div>
                 </li>
+
                 <div class="modal fade" id="accountModalCenter" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -135,18 +127,15 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
 
+                            <div class="modal-body">
                                 <h4>Display Name: <span id="dis-name"></span></h4>
                                 <br>
                                 <h4>Email: <span id="email-name"></span></h4>
                                 <br>
                                 <h4>Diet Preference: <span id="diet-name"></span></h4>
                                 <br>
-
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -182,21 +171,18 @@
                             </p>
                             <h4>Nutrition Information: </h4>
                             <p>All Nutrition Data is displayed in a convenient graph located at the bottom of each
-                                recipe display
-                                to help with counting macros.
-
+                                recipe display to help with counting macros.
                             </p>
                         </div>
                     </div>
                 </div>
-        </div>
-        </ul>
+            </ul>
         </div>
     </nav>
     <header id="header">
         <h1 id="h-text">Clean Fridge</h1>
-
     </header>
+
     <div class="container" id="ingredients-container">
         <div class="input-group mb-3" id="full-input">
             <input type="text" class="form-control" id="search-input" aria-label="Sizing example input"
@@ -206,6 +192,7 @@
                     +</button>
             </div>
         </div>
+
         <h4 id="ingredients-text" class="text-center">What's in your fridge?</h4>
         <h5 id="ingredients-text-ingredients" class="text-center"></h5>
 
@@ -213,6 +200,8 @@
         <button onclick="toStringify()" type="button" class="btn btn-primary text-center" id="search-button">Search
             Recipes</button>
     </div>
+
+
 
     <div class="row">
         <div class="col-1"></div>
@@ -276,15 +265,12 @@
     </div>
 
 
+    <footer class="container">
 
-
-
-
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-
+        <h6 id="fact-title">Fact of the day!</h6>
+        <p class="text-center" id="randomInfo"></p>
+    </footer>
     <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase.js"></script>
-
-    <!--<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script> -->
 
     <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
     <script src="assets/javascript/app.js"></script>

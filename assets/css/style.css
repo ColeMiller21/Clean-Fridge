@@ -57,7 +57,7 @@ body {
     font-size: 3.5vw;
 }
 
-#ingredients-text-ingredients {
+#ingredients-text-ingredients, #randomInfo {
     color: white;
     font-family: 'IBM Plex Sans';
     font-size: 2vw;
@@ -78,22 +78,22 @@ body {
     transition: all 0.3s ease 0s;
 }
 
-#list {
-    list-style: none;
-}
+/* #list {
+    list-style: none; 
+ } */
 
 .row {
     width: 100%
 }
 
-#recipie-div {
+/* #recipie-div {
     border-radius: 25px;
     border: 2px solid white;
     background: rgba(250, 250, 250, 0.2);
     display: none;
     max-height: 604px;
     width: 100%;
-}
+} */
 
 .modal {
     max-width: 100% !important;
@@ -103,54 +103,52 @@ body {
     padding: 20px;
 }
 
-.custom-button {
+/* .custom-button {
     float: right;
-}
+} */
 
-.recipe-images {
+/* .recipe-images {
     max-width: 100%;
     border-right: 2px solid white;
-}
+} */
 
 #ing-div {
     border-radius: 25px;
     border: 2px solid white;
     background: rgba(0, 0, 0, 0.2);
     display: none;
-
-
 }
 
-.overflow-auto {
+/* .overflow-auto {
     margin-top: 15px;
     border-radius: 25px;
     border: 2px solid white;
-}
+} */
 
 .img {
     border-radius: 25px;
 }
 
-.div-btn1 {
+/* .div-btn1 {
     border-right: 2px solid white;
     border-bottom: 2px solid white;
     width: 100%;
-}
+} */
 
-.list-group-flush {
+/* .list-group-flush {
     height: 85px;
     overflow-y: visible;
 
-}
+} */
 
-.list-group-item {
+/* .list-group-item {
     background: rgba(255, 255, 255, 0.2);
-}
+} */
 
-.overflow-div {
+/* .overflow-div {
     height: 560px;
     overflow-y: scroll;
-}
+} */
 
 #displayName-input {
     text-transform: capitalize;
@@ -212,5 +210,21 @@ input[type="radio"] {
 
 #faq-page {
     padding: 10px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    font-size: 16px;
+    width: 40%;
+    border: 2px solid white;
+    border-radius: 25px;
+    color: white;
+}
+
+#randomInfo {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
 }
 
