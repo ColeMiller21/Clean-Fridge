@@ -95,6 +95,7 @@ btnLogout.on("click", function (e) {
 
 // User state change if else functions
 firebase.auth().onAuthStateChanged(function (firebaseUser) {
+
     if (firebaseUser) {
         console.log(firebaseUser);
 
@@ -173,7 +174,7 @@ function toStringify() {
             title = response[i].title;
 
         }
-        
+
     });
 };
 
