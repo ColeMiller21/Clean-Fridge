@@ -177,8 +177,17 @@ $(document).on("click", "#recipe-image", function () {
     getRecipe();
     getChartInfo();
     $(this).attr("data-target",
-        $("#recipeModal").modal("show"));
+        $("#recipeModal").modal("show")
+    );
+    emptyModal()
 });
+function emptyModal() {
+    $("body").on("click", function () {
+        $("#dir-list").html('');
+        $("#ing-list").html('');
+    })
+};
+
 
 //Api for recipe search
 function getRecipe() {
@@ -205,7 +214,6 @@ function getRecipe() {
         var steps = response.analyzedInstructions[0].steps;
 
         for (var j = 0; j < steps.length; j++) {
-
             $("#dir-list").append("<li>" + steps[j].step + "</li>");
         }
 
@@ -213,6 +221,7 @@ function getRecipe() {
         for (var w = 0; w < extIngredients.length; w++) {
             $("#ing-list").append("<li>" + extIngredients[w].originalString + "</li>");
         }
+
     });
 };
 

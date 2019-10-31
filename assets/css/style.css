@@ -79,22 +79,9 @@ body {
     transition: all 0.3s ease 0s;
 }
 
-/* #list {
-    list-style: none; 
- } */
-
 .row {
     width: 100%
 }
-
-/* #recipie-div {
-    border-radius: 25px;
-    border: 2px solid white;
-    background: rgba(250, 250, 250, 0.2);
-    display: none;
-    max-height: 604px;
-    width: 100%;
-} */
 
 .modal {
     max-width: 100% !important;
@@ -104,15 +91,6 @@ body {
     padding: 20px;
 }
 
-/* .custom-button {
-    float: right;
-} */
-
-/* .recipe-images {
-    max-width: 100%;
-    border-right: 2px solid white;
-} */
-
 #ing-div {
     border-radius: 25px;
     border: 2px solid white;
@@ -120,36 +98,10 @@ body {
     display: none;
 }
 
-/* .overflow-auto {
-    margin-top: 15px;
-    border-radius: 25px;
-    border: 2px solid white;
-} */
-
 .img {
     border-radius: 25px;
 }
 
-/* .div-btn1 {
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    width: 100%;
-} */
-
-/* .list-group-flush {
-    height: 85px;
-    overflow-y: visible;
-
-} */
-
-/* .list-group-item {
-    background: rgba(255, 255, 255, 0.2);
-} */
-
-/* .overflow-div {
-    height: 560px;
-    overflow-y: scroll;
-} */
 
 #displayName-input {
     text-transform: capitalize;
@@ -189,7 +141,6 @@ input[type="radio"] {
     margin: 5px;
     overflow: hidden;
 }
-
 
 #recipe-image {
     transition: transform .3s ease;
