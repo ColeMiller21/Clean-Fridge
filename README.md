@@ -1,6 +1,6 @@
 # Clean-Fridge
 
-<div align="center">
+<div align="left">
     <img src="assets/images/Clean-Fridge-Original.png" width="400px"</img> 
 </div>
 
