@@ -1,5 +1,7 @@
 # Clean-Fridge
 
+![Clean Fridge Image](../images/Clean-Fridge-Original.png);
+
 ## Table of Contents
 
 * [About the Project](#about-the-project)
