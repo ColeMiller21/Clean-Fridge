@@ -1,6 +1,8 @@
 # Clean-Fridge
 
-![Clean Fridge Image](assets\images\Clean-Fridge-Original.png);
+<div align="center">
+    <img src="\assets\images\Clean-Fridge-Original.png" width="400px"</img> 
+</div>
 
 ## Table of Contents
 
