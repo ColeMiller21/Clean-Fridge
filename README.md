@@ -1,7 +1,7 @@
 # Clean-Fridge
 
 <div align="center">
-    <img src="\assets\images\Clean-Fridge-Original.png" width="400px"</img> 
+    <img src="../assets/images/Clean-Fridge-Original.png" width="400px"</img> 
 </div>
 
 ## Table of Contents
